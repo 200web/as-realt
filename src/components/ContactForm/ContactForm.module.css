@@ -6,13 +6,17 @@
   color: white;
   margin: 0; /* Added explicit margin */
   margin-top: -1px; /* Fix for the gap between sections */
+  min-height: 50vh;
+  /* outline: 1px solid red; */
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1400px;
   width: 100%;
   background-color: #20222B;
-  padding: 80px 60px;
+  padding: 80px 0px 0px 60px;
   position: relative;
 }
 
@@ -39,24 +43,23 @@
 
 .inputGroup {
   width: 65%;
-  margin-right: 5%;
+  margin-right: 10%;
 }
 
 .inputRow {
   display: flex;
   margin-bottom: 40px;
-  gap: 50px;
+  gap: 20px;
 }
 
 .inputItem {
-  border-bottom: 2px solid #BA9778;
   position: relative;
-  max-width: 300px;
+  max-width: 550px;
   flex: 1;
 }
 
 .input {
-  width: 100%;
+  width: 90%;
   font-family: 'Montserrat', sans-serif;
   background-color: transparent;
   border: none;
@@ -65,20 +68,21 @@
   font-weight: 200;
   color: white;
   outline: none;
+  border-bottom: 2px solid #BA9778;
 }
 
 .input::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.inputLine {
+/* .inputLine {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 80%;
   height: 1px;
   background-color: rgba(255, 255, 255, 0.3);
-}
+} */
 
 .inputError {
   color: #ff6b6b;
@@ -154,16 +158,132 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-@media (max-width: 1400px) {
+.select {
+  width: 120%;
+  font-family: 'Montserrat', sans-serif;
+  background-color: transparent;
+  border: none;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: white;
+  outline: none;
+  appearance: none;
+  border-bottom: 2px solid #BA9778;
+  border-radius: 0; /* 🟩 Убираем скругление */
+}
+
+.select option {
+  background-color: #cbb18b;
+  color: #222;
+  font-weight: 400;
+  border-radius: 0; /* 🟩 Убираем скругление у самих опций */
+}
+
+/* 🟨 Стили для выделенной опции (работает в большинстве браузеров) */
+.select option:checked,
+.select option:focus,
+.select option:hover {
+  background-color: #F1F1F1; /* Твой цвет */
+  color: #222; /* Сохраняем читаемость */
+}
+
+
+.customSelectWrapper {
+  position: relative;
+  width: 110%;
+  max-width: 550px;
+}
+
+.customSelectTrigger {
+  width: 110%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #BA9778;
+  outline: none;
+
+  padding: 12px 0px;
+  font-size: 20px;
+  font-weight: 200;
+  color: rgb(214, 214, 214);
+  text-align: left;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 0;
+}
+
+.customSelectList {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #cbb18b;
+  border: 1px solid #ba9778;
+  border-top: none;
+  z-index: 1000;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* (по желанию для красоты) */
+}
+
+.customSelectOption {
+  padding: 12px;
+  color: #222;
+  font-weight: 400;
+  background: #cbb18b;
+  cursor: pointer;
+  border-radius: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.customSelectOption:hover {
+  background: #F1F1F1;
+}
+
+
+
+@media (max-width: 1800px) {
+
+  /* .contactFormSection {
+    min-height: 35vh;
+ 
+  } */
   .container {
     max-width: 100%;
   }
 }
 
+
+
+@media (max-width: 1600px) {
+  .customSelectTrigger {
+    width: 102%;
+  }
+  
+  .customSelectWrapper {
+    width: 120%;
+  }
+  
+}
+
+
 @media (max-width: 1200px) {
   .container {
     padding: 60px 40px;
   }
+  .customSelectWrapper {
+    width: 140%;
+  }
+  
+}
+
+@media (max-width: 1100px) {
+
+  .customSelectTrigger {
+    font-size: 16px;
+  }
+  .customSelectWrapper {
+    width: 150%;
+  }
+  
 }
 
 @media (max-width: 900px) {
@@ -194,6 +314,16 @@
   .submitButton {
     width: 100%;
   }
+
+  .customSelectTrigger {
+    width: 100%;
+    font-size: 20px;
+  }
+  
+  .customSelectWrapper {
+    max-width: unset;
+    width: 90%;
+  }
 }
 @media (max-width: 768px) {
   .container {
@@ -209,4 +339,12 @@
     font-size: 38px;
     font-weight: 300;
   }
+  
+.customSelectTrigger {
+  width: 90%;
+}
+
+.customSelectWrapper {
+  width: 100%;
+}
 }

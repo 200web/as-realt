@@ -5,7 +5,8 @@
   justify-content: center;
   color: white;
   margin: 0; /* Added explicit margin */
-  margin-top: -1px; /* Fix for the gap between sections */
+  margin-top: -1px; 
+  /* Fix for the gap between sections */
 
 }
 
@@ -13,7 +14,7 @@
   max-width: 1400px;
   width: 100%;
   background-color: #20222B;
-  padding: 80px 60px;
+  padding: 0px 60px 80px 60px;
   position: relative;
 }
 

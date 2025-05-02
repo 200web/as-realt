@@ -7,23 +7,36 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
+    topic: '',
     agreementChecked: false
   });
-  
+
   const [formErrors, setFormErrors] = useState({
     name: false,
     phone: false,
+    topic: false,
     agreement: false
   });
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-    
-    // Clear error when user starts typing
+
+  const [open, setOpen] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, value } = e.target;
+
+    if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
+      setFormData(prev => ({
+        ...prev,
+        [name]: e.target.checked
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
+    }
+
     if (formErrors[name as keyof typeof formErrors]) {
       setFormErrors(prev => ({
         ...prev,
@@ -31,33 +44,38 @@ export default function ContactForm() {
       }));
     }
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validate form
+
     const errors = {
       name: formData.name.trim() === '',
       phone: formData.phone.trim() === '',
+      topic: formData.topic.trim() === '',
       agreement: !formData.agreementChecked
     };
-    
+
     setFormErrors(errors);
-    
-    // If no errors, submit form
-    if (!errors.name && !errors.phone && !errors.agreement) {
+
+    if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
       console.log('Form submitted:', formData);
-      // Here you would typically send data to your server
       alert('Заявка отправлена успешно!');
-      
-      // Reset form
+
       setFormData({
         name: '',
         phone: '',
+        topic: '',
         agreementChecked: false
       });
     }
   };
+
+  const topics = [
+    'Первичная консультация',
+    'Продажа квартиры',
+    'Аренда недвижимости',
+    'Загородный дом'
+  ];
 
   return (
     <section id="form" className={styles.contactFormSection}>
@@ -67,7 +85,7 @@ export default function ContactForm() {
           Мы ответим на все интересующие вопросы и поможем<br />
           в любых даже самых сложных случаях
         </p>
-        
+
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
             <div className={styles.inputRow}>
@@ -82,7 +100,7 @@ export default function ContactForm() {
                 />
                 <div className={`${styles.inputLine} ${formErrors.name ? styles.inputLineError : ''}`}></div>
               </div>
-              
+
               <div className={styles.inputItem}>
                 <input
                   type="tel"
@@ -93,6 +111,35 @@ export default function ContactForm() {
                   className={`${styles.input} ${formErrors.phone ? styles.inputError : ''}`}
                 />
                 <div className={`${styles.inputLine} ${formErrors.phone ? styles.inputLineError : ''}`}></div>
+              </div>
+
+              <div className={styles.inputItem}>
+                <div className={styles.customSelectWrapper}>
+                  <button
+                    type="button"
+                    onClick={() => setOpen(!open)}
+                    className={`${styles.customSelectTrigger} ${formErrors.topic ? styles.inputError : ''}`}
+                  >
+                    {formData.topic || 'Выбрать тему'}
+                  </button>
+                  {open && (
+                    <ul className={styles.customSelectList}>
+                      {topics.map(topic => (
+                        <li
+                          key={topic}
+                          onClick={() => {
+                            setFormData(prev => ({ ...prev, topic }));
+                            setFormErrors(prev => ({ ...prev, topic: false }));
+                            setOpen(false);
+                          }}
+                          className={styles.customSelectOption}
+                        >
+                          {topic}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -112,13 +159,11 @@ export default function ContactForm() {
               </label>
             </div>
           </div>
-          
+
           <button type="submit" className={styles.submitButton}>
             Отправить заявку
           </button>
         </form>
-        
-        
       </div>
     </section>
   );
