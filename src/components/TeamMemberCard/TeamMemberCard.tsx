@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import React from 'react';
-import styles from './TeamMemberCard.module.css';
+import React from "react";
+import styles from "./TeamMemberCard.module.css";
 
 export interface TeamMemberProps {
   id: number;
@@ -19,14 +19,14 @@ const TeamMemberCard: React.FC<TeamMemberProps> = ({
   position,
   subPosition,
   details,
-  reviewsLink
+  reviewsLink,
 }) => {
   return (
     <div className={styles.memberCard}>
       <div className={styles.imageContainer}>
-        <img 
-          src={image} 
-          alt={`${name} - ${position}`} 
+        <img
+          src={image}
+          alt={`${name} - ${position}`}
           className={styles.memberImage}
         />
       </div>
@@ -36,7 +36,8 @@ const TeamMemberCard: React.FC<TeamMemberProps> = ({
             {position}
             {subPosition && (
               <>
-                 &nbsp;<span className={styles.memberSubPosition}>{subPosition}</span>
+                &nbsp;
+                <span className={styles.memberSubPosition}>{subPosition}</span>
               </>
             )}
           </p>

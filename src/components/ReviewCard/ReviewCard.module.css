@@ -1,0 +1,42 @@
+.revCardLayout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(241, 241, 241, 1);
+  padding: 40px;
+  gap: 35px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  gap: 5px;
+}
+
+.nameEmail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameEmail .email {
+  background-color: rgba(186, 151, 120, 1);
+  padding: 5px 25px;
+  border-radius: 63px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nameEmail .name {
+  font-size: 26px;
+}
+
+.date,
+.cardDescr {
+  font-size: 22px;
+}
+
+.cardDescr {
+  text-align: start;
+  text-wrap: pretty;
+}

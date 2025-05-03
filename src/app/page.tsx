@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import styles from "./page.module.css";
@@ -34,13 +34,13 @@ export default function Home() {
         <TeamSection />
         <WorkStagesSection />
         <section className={styles.fullWidthImageSection}>
-         <div className={styles.imageContainer}>
-           <img 
-            src={fullWidthImage.src} 
-            alt="Real Estate Development" 
-            className={styles.fullWidthImage}
-           />
-        </div>
+          <div className={styles.imageContainer}>
+            <img
+              src={fullWidthImage.src}
+              alt="Real Estate Development"
+              className={styles.fullWidthImage}
+            />
+          </div>
         </section>
         <TestimonialsCarousel />
         <DocumentsSection />

@@ -6,23 +6,147 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  background-image: url('/home.webp');
+  background-image: url("/home.webp");
   background-size: cover;
   background-position: center;
+  color: rgba(252, 252, 252, 1);
 }
 
 /* Main container */
 .container {
   position: relative;
   max-width: 1400px;
+  gap: 80px;
   width: 100%;
-  background-color: #20222B;
-  padding: 80px 60px 200px 60px;
+  background-color: #20222b;
+  padding: 80px 60px 80px 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+/* infBlock styles */
+.infBlock {
+  display: flex;
+  gap: 50px;
+}
+
+.photo {
+  width: 35%;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mainInfo {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.namePos {
+  display: flex;
+  text-align: start;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.namePos .name {
+  font-size: 60px;
+  color: rgba(186, 151, 120, 1);
+}
+
+.pos,
+.phone,
+.email {
+  font-size: 26px;
+}
+
+.phoneEmail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+}
+
+.phone,
+.email {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.descr {
+  text-align: start;
+  text-wrap: pretty;
+  font-size: 21px;
+}
+
+/* reviewsBlock styles */
+.reviewsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  color: rgba(32, 34, 43, 1);
+}
+
+.header {
+  font-size: 40px;
+  text-align: start;
+  color: rgba(252, 252, 252, 1);
+}
+
+/* reviewForm styles */
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.reviewForm input,
+.reviewForm textarea {
+  outline: none;
+  border: 3px solid rgba(186, 151, 120, 1);
+  background-color: transparent;
+  color: rgba(186, 151, 120, 1);
+
+  padding: 25px;
+  font-size: 27px;
+  box-sizing: border-box;
+}
+
+.reviewForm input::placeholder,
+.reviewForm textarea::placeholder {
+  font-size: 27px;
+  color: rgba(186, 151, 120, 1);
+  font-family: "Montserrat", sans-serif;
+}
+
+.textArea {
+  height: 300px;
+  resize: none;
+}
+
+.namePhoneRow {
+  display: flex;
+  gap: 35px;
+}
+
+.namePhoneRow input,
+.namePhoneRow button {
+  flex: 1;
+  width: 33.3333% !important;
+}
+
+.namePhoneRow button {
+  font-size: 24px;
 }
 
 .title {
@@ -47,7 +171,7 @@
 
 .input {
   width: 100%;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: transparent;
   border: none;
   padding: 25px;
@@ -55,18 +179,17 @@
   font-weight: 300;
   color: white;
   outline: none;
-  border: 2px solid #BA9778;
+  border: 2px solid #ba9778;
 }
 
 .input::placeholder {
-  color: #BA9778;
+  color: #ba9778;
 }
 
 .button {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding: 25px;
-  margin-top: 15px;
-  background-color: #BA9778;
+  background-color: #ba9778;
   color: #222;
   border: none;
   cursor: pointer;
@@ -80,8 +203,9 @@
   background-color: #d9c09b;
 }
 
+/* Media queries */
 @media (max-width: 900px) {
-  .loginSection{
+  .loginSection {
     padding: 120px 10px 60px 10px;
   }
   .container {
@@ -90,17 +214,66 @@
     padding: 60px 30px;
   }
 
+  .infBlock {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .mainInfo {
+    order: 1;
+    width: 100%;
+    display: flex; /* чтобы применились align-items */
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .namePos {
+    text-align: center;
+  }
+
+  .name {
+    font-size: 60px !important;
+  }
+
+  .photo {
+    order: 2;
+    width: 100%; /* можно подправить под нужный вам размер */
+    max-width: 400px;
+    margin: 20px 0;
+  }
+
+  .phoneEmail {
+    flex-direction: row;
+  }
+
+  .descr {
+    order: 3;
+  }
+
+  .namePhoneRow {
+    flex-direction: column;
+  }
+
+  .namePhoneRow input,
+  .namePhoneRow button {
+    width: 100% !important;
+  }
+
   .title {
     font-size: 24px;
     width: 90%;
     margin-bottom: 50px;
   }
-  
-  .form{
+
+  .form {
     width: 98%;
     gap: 20px;
   }
-  .input,.button{
+  .input,
+  .button {
     padding: 15px;
     font-size: 16px;
   }
