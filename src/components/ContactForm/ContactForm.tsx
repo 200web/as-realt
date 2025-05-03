@@ -107,7 +107,6 @@ export default function ContactForm() {
         })
         .catch((err) => {
           console.error('Ошибка при отправке формы:', err);
-          alert('Ошибка при отправке. Попробуйте позже.');
         });
     }
   };
