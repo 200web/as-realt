@@ -45,30 +45,73 @@ export default function ContactForm() {
     }
   };
 
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   const errors = {
+  //     name: formData.name.trim() === '',
+  //     phone: formData.phone.trim() === '',
+  //     topic: formData.topic.trim() === '',
+  //     agreement: !formData.agreementChecked
+  //   };
+
+  //   setFormErrors(errors);
+
+  //   if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
+  //     console.log('Form submitted:', formData);
+  //     alert('Заявка отправлена успешно!');
+
+  //     setFormData({
+  //       name: '',
+  //       phone: '',
+  //       topic: '',
+  //       agreementChecked: false
+  //     });
+  //   }
+  // };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     const errors = {
       name: formData.name.trim() === '',
       phone: formData.phone.trim() === '',
       topic: formData.topic.trim() === '',
       agreement: !formData.agreementChecked
     };
-
+  
     setFormErrors(errors);
-
+  
     if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
-      console.log('Form submitted:', formData);
-      alert('Заявка отправлена успешно!');
-
-      setFormData({
-        name: '',
-        phone: '',
-        topic: '',
-        agreementChecked: false
-      });
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          message: formData.topic
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Ответ от сервера:', data);
+          alert('Заявка отправлена успешно!');
+          setFormData({
+            name: '',
+            phone: '',
+            topic: '',
+            agreementChecked: false
+          });
+        })
+        .catch((err) => {
+          console.error('Ошибка при отправке формы:', err);
+          alert('Ошибка при отправке. Попробуйте позже.');
+        });
     }
   };
+  
 
   const topics = [
     'Первичная консультация',
