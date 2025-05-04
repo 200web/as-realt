@@ -7,6 +7,9 @@ import OurProjects2 from "./assets/OurProjects2.png";
 import OurProjects3 from "./assets/OurProjects3.png";
 import OurProjects4 from "./assets/OurProjects1.jpg"; 
 import OurProjects5 from "./assets/OurProjects2.jpg"; 
+import OurProjects6 from "./assets/OurProjects4.jpg"; 
+import OurProjects7 from "./assets/OurProjects5.jpg"; 
+import OurProjects8 from "./assets/OurProjects6.jpg"; 
 
 export default function PropertiesCarousel() {
   // Property data with image src paths
@@ -39,6 +42,24 @@ export default function PropertiesCarousel() {
       id: 5,
       image: OurProjects5.src,
       title: 'Новостройки',
+      link: '#',
+    },
+    {
+      id: 6,
+      image: OurProjects6.src,
+      title: 'Дачи',
+      link: 'https://realt.by/belarus/sale/dachi/?agencyUuids=c6e5cb90-d314-11ef-a0d4-8fa3c3913ed1&page=1&seller=false',
+    },
+    {
+      id: 7,
+      image: OurProjects7.src,
+      title: 'Участки',
+      link: '#',
+    },
+    {
+      id: 8,
+      image: OurProjects8.src,
+      title: 'Без названия',
       link: '#',
     }
   ];
@@ -99,11 +120,9 @@ export default function PropertiesCarousel() {
       <section id="properties" className={styles.propertiesSection}>
         <div className={styles.container}>
           <h2 className={styles.title}>Наши объекты</h2>
-    
           <div className={styles.carouselContainer}>
-            {/* Карусель отключена — показываем просто первые три объекта */}
             <div className={styles.carousel}>
-              {properties.slice(0, 3).map((property) => (
+            {visibleProperties.map((property) => (
                 <div key={property.id} className={styles.propertyCard}>
                   <div className={styles.imageContainer}>
                     <div className={styles.imageWrapper}>
@@ -120,6 +139,15 @@ export default function PropertiesCarousel() {
                   </a>
                 </div>
               ))}
+            </div>
+            <div className={styles.controls}>
+            <button className={`${styles.navButton} ${styles.prevButton}`} onClick={prevSlide}>
+            ←
+          </button>
+          <button className={`${styles.navButton} ${styles.nextButton}`} onClick={nextSlide}>
+          →
+          </button>
+
             </div>
           </div>
         </div>

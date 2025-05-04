@@ -2,9 +2,11 @@
 import { useEffect, useState } from 'react';
 import { getCookie, setCookie } from '@/utils/cookies';
 import styles from './CookieBanner.module.css';
+import CookieSettingsModal from './CookieSettingsModal';
 
 export default function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
 
   useEffect(() => {
     const consent = getCookie('cookie_consent');
@@ -26,18 +28,19 @@ export default function CookieBanner() {
   if (!showBanner) return null;
 
   return (
-    <div className={styles.banner}>
-      <p className={styles.text}>
-        Мы используем файлы cookie для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой использования cookie.
-      </p>
-      <div className={styles.buttons}>
-        <button className={styles.button} onClick={handleAccept}>
-          Принять
-        </button>
-        <button className={styles.declineButton} onClick={handleDecline}>
-          Отклонить
-        </button>
+    <>
+      <div className={styles.banner}>
+        <p className={styles.text}>
+          Мы используем файлы cookie для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой использования cookie.
+        </p>
+        <div className={styles.buttons}>
+          <button className={styles.button} onClick={handleAccept}>Принять</button>
+           <button className={styles.settingsButton} onClick={() => setShowSettings(true)}>Настроить</button>
+           <button className={styles.declineButton} onClick={handleDecline}>Отклонить</button>
+         
+        </div>
       </div>
-    </div>
+      {showSettings && <CookieSettingsModal onClose={() => setShowSettings(false)} />}
+    </>
   );
 }

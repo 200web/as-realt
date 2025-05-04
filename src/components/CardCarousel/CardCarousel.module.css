@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-size: 58px;
+  font-size: 48px;
   font-weight: 100;
   margin-bottom: 50px;
   scroll-margin-top: 300px;
@@ -127,7 +127,8 @@
   .title {
     font-size: 38px;
     margin-bottom: 30px;
-    font-weight: 300;
+    font-weight: 100;
+    text-align: center;
   }
   
   .container {
@@ -173,5 +174,11 @@
     margin: 0 auto;
     width: 100%;
     max-width: 85%; /* Match Figma width proportion */
+  }
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 34px;
   }
 }

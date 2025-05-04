@@ -134,13 +134,21 @@
     flex-direction: column;
     gap: 16px;
   }
-  
+  .documentInfo{
+    gap: 30px;
+  }
   .documentMeta {
     align-items: flex-start;
     text-align: left;
   }
   .title {
     font-size: 38px;
-    font-weight: 300;
+    font-weight: 100;
+    /* text-align: center; */
+  }
+}
+@media (max-width: 400px) {
+  .title {
+    font-size: 34px;
   }
 }

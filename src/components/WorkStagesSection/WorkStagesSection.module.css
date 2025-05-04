@@ -129,6 +129,13 @@
     margin-left: 20px !important;
     margin-right: 20px !important;
   }
+
+  .title {
+    font-size: 38px;
+    margin-bottom: 40px;
+    font-weight: 100;
+    /* text-align: center; */
+  }
 }
 @media (max-width: 600px) {
   .container {
@@ -137,9 +144,9 @@
   
   .title {
     margin-bottom: 40px;
-    font-weight: 300;
+    font-weight: 100;
     /* text-align: center;  */
-    font-size: 32px; /* Slightly smaller for better mobile fit */
+    font-size: 38px; /* Slightly smaller for better mobile fit */
   }
   
   .stageRow {
@@ -186,7 +193,7 @@
   }
   
   .title {
-    font-size: 28px;
+    font-size: 34px;
     margin-bottom: 30px;
   }
   

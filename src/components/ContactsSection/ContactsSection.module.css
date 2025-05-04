@@ -144,7 +144,12 @@
   }
   .title {
     font-size: 38px;
-    font-weight: 300;
+    font-weight: 100;
     text-align: left;
+  }
+}
+@media (max-width: 400px) {
+  .title {
+    font-size: 34px;
   }
 }

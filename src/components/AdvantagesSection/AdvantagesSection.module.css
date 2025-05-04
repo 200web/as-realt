@@ -116,6 +116,13 @@
     margin-left: 20px !important;
     margin-right: 20px !important;
   }
+
+  .title {
+    font-size: 38px;
+    margin-bottom: 40px;
+    font-weight: 100;
+    /* text-align: center; */
+  }
   
   .advantagesGrid {
     grid-template-columns: 1fr;
@@ -155,7 +162,7 @@
   .title {
     font-size: 38px;
     margin-bottom: 40px;
-    font-weight: 300;
+    font-weight: 100;
     text-align: center;
   }
   
@@ -166,5 +173,10 @@
 @media (max-width: 375px) {
   .container{
     width: calc(100% - 40px) !important;
+  }
+}
+@media (max-width: 400px) {
+  .title {
+    font-size: 34px;
   }
 }

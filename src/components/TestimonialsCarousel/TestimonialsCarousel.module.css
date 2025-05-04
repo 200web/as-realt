@@ -275,6 +275,12 @@
     padding: 0;
     background: transparent; /* Делаем фон прозрачным, чтобы показать фоновое изображение */
   }
+  .title {
+    font-size: 38px;
+    margin-bottom: 40px;
+    font-weight: 100;
+    text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -285,7 +291,7 @@
 
   .title {
     font-size: 38px;
-    font-weight: 300;
+    font-weight: 100;
     text-align: center;
   }
 
@@ -303,7 +309,8 @@
 @media (max-width: 400px) {
   .title {
     font-size: 32px;
-    font-weight: 300;
+    font-weight: 100;
     text-align: center;
+    margin-bottom: 10px;
   }
 }

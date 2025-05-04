@@ -337,7 +337,7 @@
   }
   .title {
     font-size: 38px;
-    font-weight: 300;
+    font-weight: 100;
   }
   
 .customSelectTrigger {
@@ -347,4 +347,9 @@
 .customSelectWrapper {
   width: 100%;
 }
+}
+@media (max-width: 400px) {
+  .title {
+    font-size: 34px;
+  }
 }

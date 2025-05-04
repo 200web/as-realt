@@ -1,12 +1,17 @@
 .banner {
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
   background-color: #222;
   color: #fff;
-  padding: 1rem;
-  text-align: center;
+  padding: 2rem;
+  /* border-radius: 2px; */
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
   z-index: 1000;
+  text-align: center;
 }
 
 .text {
@@ -20,9 +25,10 @@
   gap: 1rem;
 }
 
-.button {
+.button,
+.settingsButton {
   padding: 0.5rem 1rem;
-  background-color: #b67a46;
+  background-color: #a46a3a;
   color: #fff;
   border: none;
   border-radius: 2px;
