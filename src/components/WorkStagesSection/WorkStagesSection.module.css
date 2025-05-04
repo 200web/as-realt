@@ -145,7 +145,7 @@
   .title {
     margin-bottom: 40px;
     font-weight: 100;
-    /* text-align: center;  */
+    text-align: center; 
     font-size: 38px; /* Slightly smaller for better mobile fit */
   }
   

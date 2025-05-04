@@ -59,7 +59,7 @@ export default function PropertiesCarousel() {
     {
       id: 8,
       image: OurProjects8.src,
-      title: 'Без названия',
+      title: 'Апартаменты',
       link: '#',
     }
   ];
