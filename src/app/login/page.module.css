@@ -64,6 +64,13 @@
   }
 }
 
+@media (max-width: 650px) {
+  /* Additional responsive adjustments for smaller screens */
+  .fullWidthImageSection {
+    width: 85%;
+  }
+}
+
 @media (max-width: 520px) {
   /* Additional responsive adjustments for smaller screens */
   .fullWidthImage {

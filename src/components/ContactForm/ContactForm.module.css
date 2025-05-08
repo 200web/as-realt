@@ -16,7 +16,7 @@
   max-width: 1400px;
   width: 100%;
   background-color: #20222B;
-  padding: 80px 0px 0px 60px;
+  padding: 80px 0px 100px 60px;
   position: relative;
 }
 
@@ -43,7 +43,7 @@
 
 .inputGroup {
   width: 65%;
-  margin-right: 10%;
+  margin-right: 7%;
 }
 
 .inputRow {
@@ -94,15 +94,15 @@
 
 .submitButton {
   font-family: 'Montserrat', sans-serif;
-  padding: 15px 20px;
-  background-color: #cbb18b;
+  padding: 15px 16px;
+  background-color: #BA9778;
   color: #222;
   border: none;
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 300;
+  font-size: 18px;
+  font-weight: 400;
   transition: background-color 0.3s;
-  width: 260px;
+  width: 250px;
   text-align: center;
 }
 
@@ -276,14 +276,26 @@
 }
 
 @media (max-width: 1100px) {
-
+  .input{
+    font-size: 18px;
+  }
+  .container{
+    padding-bottom: 120px;
+  }
+  .inputRow{
+    gap:10px;
+  }
   .customSelectTrigger {
-    font-size: 16px;
+    font-size: 18px;
   }
   .customSelectWrapper {
-    width: 150%;
+    width: 120%;
   }
-  
+  .submitButton{
+    font-size: 18px;
+    padding: 14px 14px;
+    width: 240px;
+  }
 }
 
 @media (max-width: 900px) {

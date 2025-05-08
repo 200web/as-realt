@@ -75,3 +75,15 @@
     }
   }
 
+  @media (max-width: 650px) {
+    .fullWidthImageSection {
+      height: auto;
+      width: 100%;
+      padding: 0 7.5%;
+    }
+    
+    .fullWidthImageSection .fullWidthImage {
+      height: 300px;
+      object-fit: cover;
+    }
+  }

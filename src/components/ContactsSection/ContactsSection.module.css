@@ -101,8 +101,9 @@
 }
 
 @media (max-width: 1200px) {
+  /* 0 top padding for list at contact form */
   .container {
-    padding: 60px 40px;
+    padding: 0px 40px 60px 0;
   }
 }
 

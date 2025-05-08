@@ -60,7 +60,7 @@
   background: none;
   border: none;
   color: #BA9778;
-  font-size: 24px;
+  font-size: 32px;
   cursor: pointer;
   z-index: 1001;
 }
@@ -163,6 +163,7 @@
   .mobileLogo {
     width: 50px;
     height: auto;
+    padding-top: 5px;
   }
   .nav {
     position: fixed;
