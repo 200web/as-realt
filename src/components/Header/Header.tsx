@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -31,13 +31,17 @@ const Header = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (mobileMenuOpen) {
         const nav = document.querySelector(`.${styles.nav}`);
-        const mobileMenuButton = document.querySelector(`.${styles.mobileMenu} button`);
-        
+        const mobileMenuButton = document.querySelector(
+          `.${styles.mobileMenu} button`
+        );
+
         // Check if the click is outside both the navigation menu AND the mobile menu button
         // Only close if the click is outside both elements
         if (
-          (nav && !nav.contains(event.target as Node)) && 
-          (mobileMenuButton && !mobileMenuButton.contains(event.target as Node))
+          nav &&
+          !nav.contains(event.target as Node) &&
+          mobileMenuButton &&
+          !mobileMenuButton.contains(event.target as Node)
         ) {
           setMobileMenuOpen(false);
         }
@@ -46,21 +50,24 @@ const Header = () => {
 
     // Prevent body scroll when menu is open
     if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = "auto";
     }
 
-    document.addEventListener('mousedown', handleClickOutside);
-    
+    document.addEventListener("mousedown", handleClickOutside);
+
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.body.style.overflow = 'auto'; // Reset on unmount
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "auto"; // Reset on unmount
     };
   }, [mobileMenuOpen]);
 
   // Handle anchor link clicks - closes mobile menu and calls navigation handler
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
     e.preventDefault();
     setMobileMenuOpen(false);
     handleAnchorNavigation(e, id);
@@ -75,50 +82,63 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.headerContainer}>
-        
         {/* Mobile Menu */}
         <div className={styles.headerContainer}>
           {/* Mobile menu with the 3 elements properly laid out */}
-          <div className={`${styles.mobileMenu} ${mobileMenuOpen ? styles.navOpen : ''}`}>
+          <div
+            className={`${styles.mobileMenu} ${
+              mobileMenuOpen ? styles.navOpen : ""
+            }`}
+          >
             {/* Left element: Login link */}
             <div className={styles.mobileLoginLink}>
-              <a href="#" onClick={(e) => { e.preventDefault(); setMobileMenuOpen(false); }}>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                }}
+              >
                 Личный кабинет
               </a>
             </div>
-            
+
             {/* Center element: Logo */}
             {!mobileMenuOpen && (
-              <a 
-                href="/" 
+              <a
+                href="/"
                 className={styles.mobileLogo}
-                onClick={(e) => { e.preventDefault(); setMobileMenuOpen(false); router.push('/'); }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setMobileMenuOpen(false);
+                  router.push("/");
+                }}
               >
                 <img src="/LOGO_1.webp" alt="Logo" width="50" height="50" />
               </a>
             )}
-            
+
             {/* Right element: Menu toggle button */}
-            <button 
+            <button
               ref={menuButtonRef}
-              className={styles.mobileMenuButton} 
-              onClick={toggleMobileMenu} 
+              className={styles.mobileMenuButton}
+              onClick={toggleMobileMenu}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? "✕" : "☰"} 
+              {mobileMenuOpen ? "✕" : "☰"}
             </button>
           </div>
         </div>
 
         {/* Navigation Links */}
-        <nav 
+        <nav
           ref={navRef}
-          className={`${styles.nav} ${mobileMenuOpen ? styles.navOpen : ''}`}
+          className={`${styles.nav} ${mobileMenuOpen ? styles.navOpen : ""}`}
           onClick={handleNavBackgroundClick} // Only stops propagation on background clicks
         >
           {/* Close button for mobile menu */}
           {mobileMenuOpen && (
-            <button 
+            <button
               className={styles.mobileCloseButton}
               onClick={() => setMobileMenuOpen(false)}
               aria-label="Close menu"
@@ -128,56 +148,110 @@ const Header = () => {
           )}
 
           {/* Logo - Link to Main Page */}
-          <div className={styles.logo} style={{ display: mobileMenuOpen ? 'none' : 'flex' }}>
-            <a href="/" onClick={(e) => { e.preventDefault(); setMobileMenuOpen(false); router.push('/'); }}>
+          <div
+            className={styles.logo}
+            style={{ display: mobileMenuOpen ? "none" : "flex" }}
+          >
+            <a
+              href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                router.push("/");
+              }}
+            >
               <img src="/LOGO_1.webp" alt="Logo" width="50" height="50" />
             </a>
           </div>
 
           {/* About Us Page Link */}
-          <a href="/about-us" onClick={(e) => {
-            // For "About Us" handle as a real page navigation
-            e.preventDefault();
-            setMobileMenuOpen(false);
-            router.push('/about-us');
-          }}>
+          <a
+            href="/about-us"
+            onClick={(e) => {
+              // For "About Us" handle as a real page navigation
+              e.preventDefault();
+              setMobileMenuOpen(false);
+              router.push("/about-us");
+            }}
+          >
             О нас
           </a>
-          
+
           {/* Anchor links on main page */}
-          <a href="#properties" onClick={(e) => handleLinkClick(e, 'properties')}>
+          <a
+            href="#properties"
+            onClick={(e) => handleLinkClick(e, "properties")}
+          >
             Наши объекты
           </a>
-          
-          <a href="#advantages" onClick={(e) => handleLinkClick(e, 'advantages')}>
+
+          <a
+            href="#advantages"
+            onClick={(e) => handleLinkClick(e, "advantages")}
+          >
             Преимущества
           </a>
-          
-          <a href="#specialists" onClick={(e) => handleLinkClick(e, 'specialists')}>
+
+          <a
+            href="#specialists"
+            onClick={(e) => handleLinkClick(e, "specialists")}
+          >
             Сотрудники
           </a>
-          
+
           {/* Mobile-Only Nav Links */}
           <div className={styles.mobileOnlyLinks}>
-            <a href="#stages" onClick={(e) => handleLinkClick(e, 'stages')}>
+            <a href="#stages" onClick={(e) => handleLinkClick(e, "stages")}>
               Этапы работы
             </a>
-            
-            <a href="#testimonials" onClick={(e) => handleLinkClick(e, 'testimonials')}>
+
+            <a
+              href="#testimonials"
+              onClick={(e) => handleLinkClick(e, "testimonials")}
+            >
               Отзывы
             </a>
-            
-            <a href="#docs" onClick={(e) => handleLinkClick(e, 'docs')}>
+
+            <a href="#docs" onClick={(e) => handleLinkClick(e, "docs")}>
               Документы
             </a>
           </div>
-          
-          <a href="#contacts" onClick={(e) => handleLinkClick(e, 'contacts')}>
+
+          <a href="#contacts" onClick={(e) => handleLinkClick(e, "contacts")}>
             Контакты
           </a>
 
-          <a href="/login" onClick={(e) => { e.preventDefault(); handlePageClick('/login'); }}className={styles.navLink}>
+          <a
+            href="/login"
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageClick("/login");
+            }}
+            className={styles.navLink}
+          >
             Личный кабинет
+          </a>
+
+          <a
+            href="/reviews"
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageClick("/reviews");
+            }}
+            className={styles.navLink}
+          >
+            Отзывы
+          </a>
+
+          <a
+            href="/makeReview"
+            onClick={(e) => {
+              e.preventDefault();
+              handlePageClick("/makeReview");
+            }}
+            className={styles.navLink}
+          >
+            Оставить отзыв
           </a>
 
           {/* Contact Info for Desktop */}

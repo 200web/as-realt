@@ -11,50 +11,84 @@
   background-position: center;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 98%;
-  gap: 50px;
-  align-items: center;
-}
-
-.title {
-  font-size: 48px;
-  width: 90%;
-  margin-bottom: 50px;
-  color: rgba(252, 252, 252, 1);
-  font-weight: 400;
-}
-
 .container {
   position: relative;
   max-width: 1400px;
   width: 100%;
   background-color: #20222b;
-  padding: 80px 60px 200px 60px;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.input {
-  width: 90%;
+/* Reviews Section */
+.reviewsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.header {
+  font-size: 38px;
+  font-weight: 100;
+  color: #ffffff;
+  text-align: left;
+  padding-top: 20px;
+}
+
+/* Review Form */
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
   font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+.reviewForm input {
   background-color: transparent;
   border: none;
+  border-bottom: 2px solid #ba9778;
   padding: 10px 0;
   font-size: 20px;
   font-weight: 200;
   color: white;
   outline: none;
-  border-bottom: 2px solid #ba9778;
+  width: 100%;
 }
 
-.input::placeholder {
-  color: #ba9778;
-  color: #ba9778;
+.reviewForm textarea {
+  background-color: transparent;
+  border: 2px solid #ba9778;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 200;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  outline: none;
+  height: 200px;
+  resize: none;
+  width: 70%;
+}
+
+.reviewForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 200;
+}
+
+.namePhoneRow {
+  display: flex;
+  gap: 20px;
+}
+
+.namePhoneRow > * {
+  flex: 1;
+  width: 100%;
 }
 
 .button {
@@ -118,12 +152,24 @@
 
   .reviewsBlock {
     order: 4;
-    gap: 20px;
+    gap: 40px;
   }
   .reviewForm,
   .namePhoneRow {
+    width: 100%;
     flex-direction: column;
+    align-items: center;
+    gap: 30px;
   }
+
+  .header {
+    padding-top: 0;
+  }
+
+  .button {
+    width: 100%;
+  }
+
   .reviewForm textarea {
     width: 100%;
   }
