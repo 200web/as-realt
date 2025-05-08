@@ -131,7 +131,7 @@ export default function LoginSection() {
         </div>
         <div className={styles.reviewsBlock}>
           <div className={styles.header}>
-            <span>Отзывы о специалисте: </span>
+            <span>Отзывы о специалисте </span>
           </div>
           {reviews.map((r) => (
             <ReviewCard
@@ -143,16 +143,16 @@ export default function LoginSection() {
             />
           ))}
           <div className={styles.header}>
-            <span>Оставить свой отзыв: </span>
+            <span>Оставьте свой отзыв </span>
           </div>
           <form className={styles.reviewForm}>
             <textarea
               className={styles.textArea}
-              placeholder="Напишите свой отзыв:"
+              placeholder="Напишите свой отзыв"
             />
             <div className={styles.namePhoneRow}>
-              <input placeholder="Ваше имя:" type="text" />
-              <input placeholder="Номер телефона:" type="text" />
+              <input placeholder="Ваше имя" type="text" />
+              <input placeholder="Ваш телефон" type="text" />
               <button type="submit" className={styles.button}>
                 Отправить отзыв
               </button>

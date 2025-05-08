@@ -40,3 +40,50 @@
   text-align: start;
   text-wrap: pretty;
 }
+@media (max-width: 900px) {
+  .revCardLayout {
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .nameEmail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nameEmail .name {
+    font-size: 22px;
+  }
+
+  .nameEmail .email {
+    font-size: 18px;
+    padding: 5px 20px;
+  }
+
+  .date,
+  .cardDescr {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .revCardLayout {
+    padding: 25px 16px;
+    gap: 20px;
+  }
+
+  .nameEmail .name {
+    font-size: 20px;
+  }
+
+  .nameEmail .email {
+    font-size: 16px;
+    padding: 4px 16px;
+  }
+
+  .date,
+  .cardDescr {
+    font-size: 16px;
+  }
+}

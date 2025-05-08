@@ -2,279 +2,250 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding-top: 170px; /* Account for fixed header, same as heroSection */
+  padding-top: 120px;
   display: flex;
   justify-content: center;
   overflow: hidden;
   background-image: url("/home.webp");
   background-size: cover;
   background-position: center;
-  color: rgba(252, 252, 252, 1);
+
 }
 
-/* Main container */
 .container {
   position: relative;
   max-width: 1400px;
-  gap: 80px;
   width: 100%;
-  background-color: #20222b;
-  padding: 80px 60px 80px 60px;
+  background-color: #20222B;
+  padding: 60px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-/* infBlock styles */
+/* Info Block */
 .infBlock {
   display: flex;
+  justify-content: space-between;
+  width: 100%;
   gap: 50px;
+  margin-bottom: 60px;
 }
 
 .photo {
-  width: 35%;
+  flex: 1;
+  max-width: 35%;
 }
 
 .photo img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
 }
 
 .mainInfo {
-  width: 65%;
+  flex: 1;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
+  text-align: left;
 }
 
 .namePos {
   display: flex;
-  text-align: start;
   flex-direction: column;
   gap: 20px;
 }
 
-.namePos .name {
-  font-size: 60px;
-  color: rgba(186, 151, 120, 1);
+.name {
+  font-size: 42px;
+  color: #BA9778;
+  font-weight: 300;
 }
 
-.pos,
-.phone,
-.email {
-  font-size: 26px;
+.pos, .phone, .email{
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
 }
 
 .phoneEmail {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: start;
 }
 
-.phone,
-.email {
+.phoneEmail span{
+  padding: 0 0 0 15px;
+}
+
+.contactItem {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
 .descr {
-  text-align: start;
-  text-wrap: pretty;
-  font-size: 21px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-/* reviewsBlock styles */
+/* Reviews Section */
 .reviewsBlock {
   display: flex;
   flex-direction: column;
   gap: 40px;
-  color: rgba(32, 34, 43, 1);
+  width: 100%;
 }
 
 .header {
-  font-size: 40px;
-  text-align: start;
-  color: rgba(252, 252, 252, 1);
+  font-size: 38px;
+  font-weight: 100;
+  color: #ffffff;
+  text-align: left;
+  padding-top: 20px;
 }
 
-/* reviewForm styles */
+/* Review Form */
 .reviewForm {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
-.reviewForm input,
-.reviewForm textarea {
-  outline: none;
-  border: 3px solid rgba(186, 151, 120, 1);
+.reviewForm input {
   background-color: transparent;
-  color: rgba(186, 151, 120, 1);
-
-  padding: 25px;
-  font-size: 27px;
-  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid #BA9778;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: white;
+  outline: none;
+  width: 100%;
 }
 
-.reviewForm input::placeholder,
-.reviewForm textarea::placeholder {
-  font-size: 27px;
-  color: rgba(186, 151, 120, 1);
-  font-family: "Montserrat", sans-serif;
-}
-
-.textArea {
-  height: 300px;
+/* Полноценная рамка для textarea */
+.reviewForm textarea {
+  background-color: transparent;
+  border: 2px solid #BA9778;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  outline: none;
+  height: 200px;
   resize: none;
+  width: 70%;
+}
+
+.reviewForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 200;
+
 }
 
 .namePhoneRow {
   display: flex;
-  gap: 35px;
+  gap: 20px;
 }
 
-.namePhoneRow input,
-.namePhoneRow button {
+.namePhoneRow > * {
   flex: 1;
-  width: 33.3333% !important;
-}
-
-.namePhoneRow button {
-  font-size: 24px;
-}
-
-.title {
-  font-size: 38px;
-  color: white;
-  font-weight: 300;
-  margin-bottom: 80px;
-  width: 600px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  width: 550px;
-}
-
-.inputItem {
-  /* border: 2px solid #BA9778; */
-  position: relative;
+  width: 100%;
 }
 
 .input {
-  width: 100%;
-  font-family: "Montserrat", sans-serif;
+  width: 90%;
+  font-family: 'Montserrat', sans-serif;
   background-color: transparent;
   border: none;
-  padding: 25px;
-  font-size: 18px;
-  font-weight: 300;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 200;
   color: white;
   outline: none;
-  border: 2px solid #ba9778;
-}
-
-.input::placeholder {
-  color: #ba9778;
+  border-bottom: 2px solid #BA9778;
 }
 
 .button {
-  font-family: "Montserrat", sans-serif;
-  padding: 25px;
-  background-color: #ba9778;
+  font-family: 'Montserrat', sans-serif;
+  padding: 15px 16px;
+  background-color: #BA9778;
   color: #222;
   border: none;
-  cursor: pointer;
+  width: 100%;
   font-size: 18px;
   font-weight: 400;
+  cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%;
+  text-align: center;
 }
 
 .button:hover {
   background-color: #d9c09b;
 }
 
-/* Media queries */
-@media (max-width: 900px) {
-  .loginSection {
-    padding: 120px 10px 60px 10px;
-  }
-  .container {
-    width: 80%;
-    /* margin: 30px; */
-    padding: 60px 30px;
-  }
-
+/* Responsive */
+@media (max-width: 992px) {
   .infBlock {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 25px;
-  }
-
-  .mainInfo {
-    order: 1;
-    width: 100%;
-    display: flex; /* чтобы применились align-items */
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .namePos {
-    text-align: center;
-  }
-
-  .name {
-    font-size: 60px !important;
   }
 
   .photo {
-    order: 2;
-    width: 100%; /* можно подправить под нужный вам размер */
-    max-width: 400px;
-    margin: 20px 0;
+    max-width: 100%;
+    margin-bottom: 20px;
+    order:2;
+  }
+
+  .mainInfo {
+    align-items: center;
+    text-align: center;
+    order:1;
+  }
+
+  .namePos {
+    align-items: center;
   }
 
   .phoneEmail {
     flex-direction: row;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    gap: 15px;
   }
 
-  .descr {
-    order: 3;
+  .pos, .phone, .email{
+    font-size: 20px;
   }
 
+  .descr{
+    order:3;
+  }
+
+  .reviewsBlock{
+    order:4;
+    gap:20px
+  }
+  .reviewForm,
   .namePhoneRow {
     flex-direction: column;
   }
-
-  .namePhoneRow input,
-  .namePhoneRow button {
-    width: 100% !important;
+  .reviewForm textarea{
+    width: 100%;
   }
-
   .title {
-    font-size: 24px;
-    width: 90%;
-    margin-bottom: 50px;
-  }
-
-  .form {
-    width: 98%;
-    gap: 20px;
-  }
-  .input,
-  .button {
-    padding: 15px;
-    font-size: 16px;
+    font-size: 32px;
+    text-align: center;
   }
 }
