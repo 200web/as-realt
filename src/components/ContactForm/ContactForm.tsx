@@ -70,6 +70,47 @@ export default function ContactForm() {
   //   }
   // };
 
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  
+  //   const errors = {
+  //     name: formData.name.trim() === '',
+  //     phone: formData.phone.trim() === '',
+  //     topic: formData.topic.trim() === '',
+  //     agreement: !formData.agreementChecked
+  //   };
+  
+  //   setFormErrors(errors);
+  
+  //   if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
+  //     fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({
+  //         name: formData.name,
+  //         phone: formData.phone,
+  //         message: formData.topic
+  //       }),
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log('Ответ от сервера:', data);
+  //         alert('Заявка отправлена успешно!');
+  //         setFormData({
+  //           name: '',
+  //           phone: '',
+  //           topic: '',
+  //           agreementChecked: false
+  //         });
+  //       })
+  //       .catch((err) => {
+  //         console.error('Ошибка при отправке формы:', err);
+  //       });
+  //   }
+  // };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
   
@@ -83,7 +124,7 @@ export default function ContactForm() {
     setFormErrors(errors);
   
     if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -94,7 +135,10 @@ export default function ContactForm() {
           message: formData.topic
         }),
       })
-        .then((res) => res.json())
+        .then((res) => {
+          if (!res.ok) throw new Error('Ошибка сервера');
+          return res.json();
+        })
         .then((data) => {
           console.log('Ответ от сервера:', data);
           alert('Заявка отправлена успешно!');
@@ -107,9 +151,11 @@ export default function ContactForm() {
         })
         .catch((err) => {
           console.error('Ошибка при отправке формы:', err);
+          alert('Не удалось отправить заявку. Попробуйте ещё раз позже.');
         });
     }
   };
+  
   
 
   const topics = [
