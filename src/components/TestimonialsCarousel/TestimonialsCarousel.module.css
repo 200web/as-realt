@@ -113,7 +113,7 @@
   position: relative;
   background-color: #D9D9D9;
   color: #333;
-  padding: 16px;
+  padding: 20px;
   border-radius: 0;
   display: flex;
   flex-direction: column;
@@ -126,7 +126,7 @@
 
 .testimonialHeader {
   margin-bottom: 16px;
-  padding-top: 20px;
+  padding-top: 0px;
 }
 
 .testimonialAuthor {
@@ -141,7 +141,7 @@
 }
 
 .testimonialContent {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.2;
   margin: 0;
   overflow: hidden;
@@ -184,19 +184,20 @@
 }
 
 .leaveCommentButton {
+  display: inline-block;
   padding: 16px 30px;
-  background-color: #BA9778;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #b89567;
   color: #20222B;
-  border: none;
-  cursor: pointer;
+  text-decoration: none;
+  border-radius: 4px;
   font-size: 18px;
   font-weight: 400;
-  font-family: 'Montserrat', sans-serif;
-  transition: background-color 0.3s;
-  text-align: center;
-  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
-
+  
 .leaveCommentButton:hover {
   background-color: #d9c09b;
 }
@@ -283,6 +284,12 @@
     font-weight: 100;
     text-align: center;
   }
+  .leaveCommentButton {
+      font-size: 14px;
+      padding: 14px 14px;
+      width: 260px;
+      text-align: center;
+  }
 }
 
 @media (max-width: 480px) {
@@ -290,6 +297,10 @@
     height: auto;
     min-height: 250px;
   }
+
+  .leaveCommentButton {
+    width: 90%;
+}
 
   .title {
     font-size: 38px;

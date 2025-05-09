@@ -149,6 +149,11 @@
 }
 
 @media (max-width: 576px) {
+  .container{
+    margin: 0;
+    padding: 0;
+    max-width: 100% !important;
+  }
   .navButton {
     width: 40px;
     height: 40px;
@@ -156,15 +161,16 @@
   }
   
   .prevButton {
-    left: 10px;
+    left: 8px;
   }
   
   .nextButton {
-    right: 10px;
+    right: 8px;
   }
   
   .carouselContainer {
     min-height: 400px; /* Mobile height */
+    
   }
 }
 

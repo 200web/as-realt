@@ -63,20 +63,21 @@
 }
 
 .cardNumber {
-  font-size: 18px;
+  font-size: 20px;
   color: #BA9778;
   margin-bottom: 16px;
 }
 
 .cardTitle {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 300;
   margin-bottom: 16px;
 }
 
 .cardDescription {
   font-size: 14px;
   line-height: 1.6;
+  font-weight: 200;
   color: rgba(255, 255, 255, 0.8);
 }
 

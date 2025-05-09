@@ -93,19 +93,20 @@
 }
 
 .submitButton {
+  display: inline-block;
   font-family: 'Montserrat', sans-serif;
-  padding: 15px 16px;
-  background-color: #BA9778;
-  color: #222;
-  border: none;
-  cursor: pointer;
+  padding: 16px 30px;
+  background-color: #b89567;
+  color: #20222B;
+  text-decoration: none;
+  border-radius: 4px;
   font-size: 18px;
   font-weight: 400;
-  transition: background-color 0.3s;
-  width: 250px;
-  text-align: center;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
-
+  
 .submitButton:hover {
   background-color: #d9c09b;
 }
@@ -350,7 +351,7 @@
   .title {
     font-size: 38px;
     font-weight: 100;
-    text-align: center;
+    text-align: left;
   }
   
 .customSelectTrigger {

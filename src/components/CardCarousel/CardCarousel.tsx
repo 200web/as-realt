@@ -30,7 +30,7 @@ const CardCarousel: React.FC<CardCarouselProps> = ({
       const mobile = window.innerWidth <= 768;
       setIsMobile(mobile);
       
-      if (window.innerWidth <= 576) {
+      if (window.innerWidth <= 768) {
         setItemsPerView(1);
       } else if (window.innerWidth <= 968) {
         setItemsPerView(2);

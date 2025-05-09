@@ -14,7 +14,7 @@
   max-width: 1400px;
   width: 100%;
   background-color: #20222B;
-  padding: 80px 60px;
+  padding: 60px 60px;
   position: relative;
 }
 
@@ -136,8 +136,11 @@
     font-weight: 100;
     /* text-align: center; */
   }
+  /* .stageRow {
+    gap: 35px; /* как у .advantagesGrid */
+  
 }
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .container {
     padding: 40px 20px;
   }
@@ -152,7 +155,7 @@
   .stageRow {
     grid-template-columns: 1fr;
     gap: 8px; /* Reduced gap between elements */
-    padding: 15px 10px; /* Add horizontal padding */
+    padding: 0px 10px; /* Add horizontal padding */
     margin-bottom: 20px;
     /* Ensure borders are removed */
     border: none !important;
@@ -163,26 +166,28 @@
   }
   
   .stageNumber {
-    font-size: 24px; /* Slightly larger than your current setting */
+    font-size: 20px; /* Slightly larger than your current setting */
   }
   
   .stageTitleCol, 
   .stageDescriptionCol {
     grid-column: 1;
     width: 100%; /* Ensure full width */
-    padding: 0 5px; /* Add small padding */
+    margin: 0;
   }
   
   .stageTitle {
     font-size: 18px; /* Slightly larger for better readability */
-    padding-right: 0; /* Remove right padding that was causing issues */
-    margin-bottom: 8px; /* Add space between title and description */
+    font-weight: 300;
+    /* margin-bottom: 12px; */
   }
   
   .stageDescription {
     font-size: 14px; /* Slightly smaller font */
-    line-height: 1.4; /* Increased line height for readability */
-    padding: 0 0 0 5px; /* Left padding for text */
+    line-height: 1.6;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.8); /* как у .cardDescription */
+    margin: 0;
   }
 }
 
