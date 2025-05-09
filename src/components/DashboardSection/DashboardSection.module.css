@@ -1,23 +1,18 @@
 .dashboardSection {
   width: 100%;
-  height: auto;
-  position: relative;
-  padding: 170px 0px 100px 0px;
+  padding: 170px 0 200px 0;
   display: flex;
   justify-content: center;
-  overflow: hidden;
-  /* background-image: url("/home.webp"); */
-  background-size: cover;
-  background-position: center;
+  /* background-size: cover;
+  background-position: center; */
 }
 
-
 .container {
-  position: relative;
-  max-width: 1400px;
+  max-width: 1200px;
   width: 100%;
-  background-color: #20222b;
-  padding: 100px 60px 160px 60px;
+  background-color: #ffffff;
+  padding: 60px 0px 160px 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,111 +20,62 @@
 }
 
 .title {
-  font-size: 48px;
-  width: 90%;
-  margin-bottom: 60px;
-  color: rgba(252, 252, 252, 1);
-  font-weight: 100;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #111;
+  text-align: center;
 }
 
 .buttonGroup {
   display: flex;
+  flex-direction: column;
   gap: 20px;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+  width: 80%;
 }
 
 .button {
   display: inline-block;
-  width: 50%;
   padding: 16px 30px;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #b89567;
+  background-color: #f4f4f4;
   color: #20222B;
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 18px;
+  border-radius: 8px;
+  font-size: 16px;
   font-weight: 400;
   transition: background-color 0.3s ease;
   border: none;
   cursor: pointer;
+  min-width: 60%;
+  text-align: center;
 }
 
 .button:hover {
-  background-color: #d9c09b;
+  background-color: #eaeaea;
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-
-  .loginSection {
-    padding: 100px 0px 50px 0px;
+  .dashboardSection {
+    padding: 100px 0 50px 0;
   }
 
   .container {
-    padding: 80px 60px 100px 60px;
-  }
-  
-  .infBlock {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    padding: 40px 30px;
   }
 
-  .input {
-    width: 80%; 
+  .buttonGroup {
+    flex-direction: column;
+    gap: 16px;
   }
-  
+
   .button {
-    width: 80%; 
-  }
-
-  .photo {
-    max-width: 100%;
-    margin-bottom: 20px;
-    order: 2;
-  }
-
-  .mainInfo {
-    align-items: center;
-    text-align: center;
-    order: 1;
-  }
-
-  .namePos {
-    align-items: center;
-  }
-
-  .phoneEmail {
-    flex-direction: row;
-    /* justify-content: center; */
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .pos,
-  .phone,
-  .email {
-    font-size: 20px;
-  }
-
-  .descr {
-    order: 3;
-  }
-
-  .reviewsBlock {
-    order: 4;
-    gap: 20px;
-  }
-  .reviewForm,
-  .namePhoneRow {
-    flex-direction: column;
-  }
-  .reviewForm textarea {
     width: 100%;
   }
+
   .title {
-    font-size: 32px;
-    text-align: center;
+    font-size: 28px;
   }
 }
