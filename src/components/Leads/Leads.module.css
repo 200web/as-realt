@@ -1,0 +1,135 @@
+.leads {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding: 170px 0px 100px 0px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  /* background-image: url("/home.webp"); */
+  background-size: cover;
+  background-position: center;
+}
+
+
+.container {
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  background-color: #20222b;
+  padding: 100px 60px 160px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 48px;
+  width: 90%;
+  margin-bottom: 60px;
+  color: rgba(252, 252, 252, 1);
+  font-weight: 100;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-block;
+  width: 50%;
+  padding: 16px 30px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #b89567;
+  color: #20222B;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #d9c09b;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+
+  .loginSection {
+    padding: 100px 0px 50px 0px;
+  }
+
+  .container {
+    padding: 80px 60px 100px 60px;
+  }
+  
+  .infBlock {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .input {
+    width: 80%; 
+  }
+  
+  .button {
+    width: 80%; 
+  }
+
+  .photo {
+    max-width: 100%;
+    margin-bottom: 20px;
+    order: 2;
+  }
+
+  .mainInfo {
+    align-items: center;
+    text-align: center;
+    order: 1;
+  }
+
+  .namePos {
+    align-items: center;
+  }
+
+  .phoneEmail {
+    flex-direction: row;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .pos,
+  .phone,
+  .email {
+    font-size: 20px;
+  }
+
+  .descr {
+    order: 3;
+  }
+
+  .reviewsBlock {
+    order: 4;
+    gap: 20px;
+  }
+  .reviewForm,
+  .namePhoneRow {
+    flex-direction: column;
+  }
+  .reviewForm textarea {
+    width: 100%;
+  }
+  .title {
+    font-size: 32px;
+    text-align: center;
+  }
+}
