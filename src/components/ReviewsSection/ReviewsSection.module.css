@@ -1,0 +1,162 @@
+.loginSection {
+  width: 100%;
+  height: auto;
+  position: relative;
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-image: url("/home.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  position: relative;
+  max-width: 1400px;
+  width: 100%;
+  background-color: #20222b;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Info Block */
+.infBlock {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.photo {
+  flex: 1;
+  max-width: 35%;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mainInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: left;
+}
+
+.namePos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name {
+  font-size: clamp(30px, 6vw, 42px);
+  color: #ba9778;
+  font-weight: 300;
+}
+
+.pos {
+  font-size: clamp(20px, 3vw, 24px);
+}
+
+.pos,
+.phone,
+.email {
+  font-size: clamp(18px, 3vw, 24px);
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+.phoneEmail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.phoneEmail span {
+  padding: 0 0 0 15px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.descr {
+  font-size: clamp(16px, 3vw, 18px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Reviews Section */
+.reviewsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.header {
+  font-size: 38px;
+  font-weight: 100;
+  color: #ffffff;
+  text-align: left;
+  padding-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .infBlock {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .photo {
+    max-width: 100%;
+    margin-bottom: 20px;
+    order: 2;
+  }
+
+  .mainInfo {
+    align-items: center;
+    text-align: center;
+    order: 1;
+    gap: 25px;
+  }
+
+  .namePos {
+    align-items: center;
+  }
+
+  .phoneEmail {
+    flex-direction: row;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .descr {
+    order: 3;
+  }
+
+  .reviewsBlock {
+    order: 4;
+    gap: 20px;
+  }
+  .title {
+    font-size: 32px;
+    text-align: center;
+  }
+}
