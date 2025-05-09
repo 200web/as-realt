@@ -23,7 +23,7 @@
   background-color: rgba(186, 151, 120, 1);
   padding: 5px 25px;
   border-radius: 63px;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -32,8 +32,8 @@
 }
 
 .date,
-.cardDescr {
-  font-size: 22px;
+.cardDescr, .source {
+  font-size: 18px;
 }
 
 .cardDescr {
