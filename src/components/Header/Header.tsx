@@ -232,7 +232,7 @@ const Header = () => {
             Личный кабинет
           </a>
 
-          <a
+          {/* <a
             href="/reviews"
             onClick={(e) => {
               e.preventDefault();
@@ -252,7 +252,7 @@ const Header = () => {
             className={styles.navLink}
           >
             Оставить отзыв
-          </a>
+          </a> */}
 
           {/* Contact Info for Desktop */}
           <div className={styles.contact}>

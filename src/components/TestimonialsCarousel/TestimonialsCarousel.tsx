@@ -183,9 +183,9 @@ export default function TestimonialsCarousel() {
         </div>
         
         <div className={styles.leaveCommentContainer}>
-          <button className={styles.leaveCommentButton}>
-            Оставить комментарий
-          </button>
+        <a href="/makeReview" className={styles.leaveCommentButton}>
+  Оставить комментарий
+</a>
         </div>
       </div>
     </section>
