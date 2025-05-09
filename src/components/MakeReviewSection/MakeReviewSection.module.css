@@ -45,7 +45,6 @@
   flex-direction: column;
   gap: 40px;
   width: 100%;
-  max-width: 800px;
   font-family: "Montserrat", sans-serif;
   color: white;
 }
@@ -71,9 +70,9 @@
   font-family: "Montserrat", sans-serif;
   color: white;
   outline: none;
-  height: 200px;
+  height: 300px;
   resize: none;
-  width: 70%;
+  width: 100%;
 }
 
 .reviewForm textarea::placeholder {
