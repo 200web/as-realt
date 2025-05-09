@@ -141,7 +141,7 @@ export default function ContactForm() {
         })
         .then((data) => {
           console.log('Ответ от сервера:', data);
-          alert('Заявка отправлена успешно!');
+      
           setFormData({
             name: '',
             phone: '',
@@ -151,7 +151,7 @@ export default function ContactForm() {
         })
         .catch((err) => {
           console.error('Ошибка при отправке формы:', err);
-          alert('Не удалось отправить заявку. Попробуйте ещё раз позже.');
+    
         });
     }
   };
