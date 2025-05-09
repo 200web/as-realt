@@ -70,7 +70,7 @@
 @media (max-width: 600px) {
   .revCardLayout {
     padding: 25px 16px;
-    gap: 10px;
+    gap: 20px;
   }
 
   .nameEmail .name {
@@ -85,9 +85,5 @@
   .date,
   .cardDescr {
     font-size: 16px;
-  }
-
-  .cardHeader {
-    gap: 10px;
   }
 }

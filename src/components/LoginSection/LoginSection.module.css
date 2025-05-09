@@ -9,39 +9,163 @@
   background-image: url("/home.webp");
   background-size: cover;
   background-position: center;
-}
 
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 98%;
-  gap: 50px;
-  align-items: center;
-}
-
-.title {
-  font-size: 48px;
-  width: 90%;
-  margin-bottom: 50px;
-  color: rgba(252, 252, 252, 1);
-  font-weight: 400;
 }
 
 .container {
   position: relative;
   max-width: 1400px;
   width: 100%;
-  background-color: #20222b;
-  padding: 80px 60px 200px 60px;
+  background-color: #20222B;
+  padding: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
+/* Info Block */
+.infBlock {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 50px;
+  margin-bottom: 60px;
+}
+
+.photo {
+  flex: 1;
+  max-width: 35%;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.mainInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: left;
+}
+
+.namePos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.name {
+  font-size: 42px;
+  color: #BA9778;
+  font-weight: 300;
+}
+
+.pos, .phone, .email{
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+}
+
+.phoneEmail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.phoneEmail span{
+  padding: 0 0 0 15px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.descr {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Reviews Section */
+.reviewsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+
+.header {
+  font-size: 38px;
+  font-weight: 100;
+  color: #ffffff;
+  text-align: left;
+  padding-top: 20px;
+}
+
+/* Review Form */
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 800px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.reviewForm input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #BA9778;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: 200;
+  color: white;
+  outline: none;
+  width: 100%;
+}
+
+/* Полноценная рамка для textarea */
+.reviewForm textarea {
+  background-color: transparent;
+  border: 2px solid #BA9778;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  outline: none;
+  height: 200px;
+  resize: none;
+  width: 70%;
+}
+
+.reviewForm textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 200;
+
+}
+
+.namePhoneRow {
+  display: flex;
+  gap: 20px;
+}
+
+.namePhoneRow > * {
+  flex: 1;
+  width: 100%;
+}
+
 .input {
   width: 90%;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: transparent;
   border: none;
   padding: 10px 0;
@@ -49,21 +173,16 @@
   font-weight: 200;
   color: white;
   outline: none;
-  border-bottom: 2px solid #ba9778;
-}
-
-.input::placeholder {
-  color: #ba9778;
-  color: #ba9778;
+  border-bottom: 2px solid #BA9778;
 }
 
 .button {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   padding: 15px 16px;
-  background-color: #ba9778;
+  background-color: #BA9778;
   color: #222;
   border: none;
-  width: 90%;
+  width: 100%;
   font-size: 18px;
   font-weight: 400;
   cursor: pointer;
@@ -86,13 +205,13 @@
   .photo {
     max-width: 100%;
     margin-bottom: 20px;
-    order: 2;
+    order:2;
   }
 
   .mainInfo {
     align-items: center;
     text-align: center;
-    order: 1;
+    order:1;
   }
 
   .namePos {
@@ -106,25 +225,23 @@
     gap: 15px;
   }
 
-  .pos,
-  .phone,
-  .email {
+  .pos, .phone, .email{
     font-size: 20px;
   }
 
-  .descr {
-    order: 3;
+  .descr{
+    order:3;
   }
 
-  .reviewsBlock {
-    order: 4;
-    gap: 20px;
+  .reviewsBlock{
+    order:4;
+    gap:20px
   }
   .reviewForm,
   .namePhoneRow {
     flex-direction: column;
   }
-  .reviewForm textarea {
+  .reviewForm textarea{
     width: 100%;
   }
   .title {
