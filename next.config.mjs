@@ -1,7 +1,7 @@
 const nextConfig = {
   basePath: '', // либо просто удали эту строку
   assetPrefix: '', // тоже можно удалить
-  output: 'export',
+  // output: 'export',
   trailingSlash: true,
   images: {
     unoptimized: true,

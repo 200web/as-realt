@@ -23,6 +23,27 @@
   text-align: center;
 }
 
+.topRow {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+}
+
+.backArrow {
+  font-size: 20px;
+  color: #ba9778;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.backArrow:hover {
+  transform: translateX(-5px);
+}
+
 /* Info Block */
 .infBlock {
   display: flex;
@@ -34,7 +55,7 @@
 
 .photo {
   flex: 1;
-  max-width: 35%;
+  max-width: 25%;
 }
 
 .photo img {
@@ -58,22 +79,24 @@
 }
 
 .name {
-  font-size: clamp(30px, 6vw, 42px);
+  font-size: 32px;
   color: #ba9778;
   font-weight: 300;
 }
 
-.pos {
-  font-size: clamp(20px, 3vw, 24px);
-}
+
 
 .pos,
 .phone,
 .email {
-  font-size: clamp(18px, 3vw, 24px);
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
+}
+
+.pos {
+  font-size: 22px;
 }
 
 .phoneEmail {
@@ -116,6 +139,12 @@
 
 /* Responsive */
 @media (max-width: 992px) {
+
+  .loginSection {
+    padding-top: 100px;
+  }
+
+
   .infBlock {
     flex-direction: column;
     align-items: center;
@@ -135,6 +164,23 @@
     order: 1;
     gap: 25px;
   }
+
+  
+.name {
+  font-size: 24px;
+}
+
+.pos,
+.phone,
+.email {
+  font-size: 18px;
+}
+
+.pos {
+  font-size: 18px;
+}
+
+
 
   .namePos {
     align-items: center;
