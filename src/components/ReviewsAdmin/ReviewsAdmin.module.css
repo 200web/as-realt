@@ -1,0 +1,83 @@
+.reviews {
+  width: 100%;
+  padding: 170px 0px 100px 0px;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 60px 60px;
+  /* border-radius: 16px; */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.back {
+  font-size: 18px;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 0;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.back:hover {
+  color: #000;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: #111;
+  text-align: center;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 1.5fr 0.5fr 0.5fr;
+  gap: 10px;
+  padding: 16px 10px;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  color: #222;
+  font-size: 15px;
+  transition: background 0.2s ease;
+}
+
+.row:hover:not(.header) {
+  background-color: #eaeaea;
+}
+
+.header {
+  background-color: transparent;
+  font-weight: 600;
+  color: #444;
+  border-bottom: 2px solid #ddd;
+  cursor: default;
+  border-radius: 0px;
+}
+
+@media (max-width: 768px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .header {
+    display: none;
+  }
+}
