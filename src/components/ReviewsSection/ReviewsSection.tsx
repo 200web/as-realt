@@ -117,7 +117,7 @@ export default function ReviewsSection() {
             <ReviewCard
               key={r.id}
               author={r.author}
-              source={r.source}
+              // source={r.source}
               date={r.date}
               text={r.text}
             />
