@@ -67,7 +67,7 @@ export default function ReviewsSection() {
     <div className={styles.container}>
  
     <div className={styles.topRow}>
-    <a href="http://localhost:3000/#specialists" className={styles.backArrow}>
+    <a href="https://www.asrealt.by/#specialists" className={styles.backArrow}>
       &lt; Назад
     </a>
   </div>
