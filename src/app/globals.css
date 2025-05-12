@@ -39,7 +39,7 @@ body::before {
 
 @media (max-width: 768px) {
   body::before {
-    z-index: -1;
+    z-index: 0;
   }	
 }
 
