@@ -2,7 +2,7 @@
 
 import React from "react";
 import Header from "../../../components/Header/Header";
-import DashboardSection from "../../../components/DashboardSection/DashboardSection";
+import EmployeesAdmin from "../../../components/EmployeesAdmin/EmployeesAdmin";
 import Footer from "../../../components/Footer/Footer";
 import styles from "./page.module.css";
 
@@ -11,7 +11,7 @@ export default function EmployeesPage() {
     <div className={styles.page}>
       <main className={styles.main}>
         <Header />
-        <DashboardSection />
+        <EmployeesAdmin />
         <Footer />
       </main>
     </div>

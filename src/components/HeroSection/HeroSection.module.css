@@ -125,12 +125,21 @@
 }
 
 @media (max-width: 768px) {
+
+  .heroSection {
+    height: 100vh;
+  }
+
   .container {
     height: auto;
     background-size: 300%;
     background-position: center;
     margin-left: 20px !important;
     margin-right: 20px !important;
+    padding-top: 2.5rem;
+      background-image: none;
+      background-size: cover;
+      background-position: center;     
   }
   
   .content {

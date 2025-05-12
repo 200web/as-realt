@@ -1,81 +1,73 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './LoadingOverlay.module.css';
 
+const preloadImages = (sources: string[]): Promise<void> => {
+  return Promise.allSettled(
+    sources.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = () => resolve();
+          img.onerror = () => resolve(); // считать ошибку тоже "загрузкой", чтобы не встать колом
+        })
+    )
+  ).then(() => {});
+};
+
+const getPreloadImages = (): string[] => {
+  if (typeof window === 'undefined') return [];
+
+  const isMobile = window.matchMedia('(max-width: 767px)').matches;
+
+  const common = [
+    '/LOGO_BLACK.png', // hero logo
+    '/LOGO_1.webp',    // header logo
+  ];
+
+  const mobileOnly = ['/home-mob.webp'];
+  const desktopOnly = ['/bg1.jpg', '/home.webp'];
+
+  return isMobile ? [...common, ...mobileOnly] : [...common, ...desktopOnly];
+};
+
 const LoadingOverlay: React.FC = () => {
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [visible, setVisible] = useState(true);
   const [logoVisible, setLogoVisible] = useState(false);
-  const [overlayVisible, setOverlayVisible] = useState(true);
 
   useEffect(() => {
-    // Show logo with a slight delay for a better visual effect
-    const logoTimer = setTimeout(() => {
-      setLogoVisible(true);
-    }, 300);
+    const logoTimer = setTimeout(() => setLogoVisible(true), 300);
 
-    // Create an array of critical images to preload
-    const imagesToPreload = [
-      '/bg1.jpg', // Background image
-      '/home.webp', // Hero background
-      '/LOGO_BLACK.png', // Logo in hero
-      '/LOGO_1.webp' // Header logo
-    ];
+    const images = getPreloadImages();
 
-    let loadedCount = 0;
-    const totalImages = imagesToPreload.length;
-
-    // Function to handle image load
-    const handleImageLoad = () => {
-      loadedCount++;
-      if (loadedCount === totalImages) {
-        // All critical images are loaded
+    preloadImages(images).then(() => {
+      // Поддерживаем минимальное время показа прелоадера
+      setTimeout(() => {
         setTimeout(() => {
-          setImagesLoaded(true);
-          
-          // Add a slight delay before hiding the overlay completely
-          setTimeout(() => {
-            setOverlayVisible(false);
-            
-            // Ensure browser repaints elements before adding animation class
+          setVisible(false);
+          requestAnimationFrame(() =>
             requestAnimationFrame(() => {
-              requestAnimationFrame(() => {
-                // Add the class to show all first-screen animations
-                document.documentElement.classList.add('initial-load-complete');
-              });
-            });
-          }, 800);
-        }, 1000); // Minimum display time for overlay
-      }
-    };
-
-    // Preload all critical images
-    imagesToPreload.forEach(src => {
-      const img = new Image();
-      img.src = src;
-      img.onload = handleImageLoad;
-      img.onerror = handleImageLoad; // Count errors as loaded to prevent infinite wait
+              document.documentElement.classList.add('initial-load-complete');
+            })
+          );
+        }, 800);
+      }, 1000);
     });
 
-    return () => {
-      clearTimeout(logoTimer);
-    };
+    return () => clearTimeout(logoTimer);
   }, []);
 
-  // If overlay is completely hidden, don't render it at all
-  if (!overlayVisible) return null;
+  if (!visible) return null;
 
   return (
-    <div 
-      className={`${styles.overlay} ${imagesLoaded ? styles.fadeOut : ''}`}
+    <div
+      className={`${styles.overlay} ${!visible ? styles.fadeOut : ''}`}
       aria-hidden="true"
     >
       <div className={`${styles.logoContainer} ${logoVisible ? styles.logoVisible : ''}`}>
-        <img 
-          src="/LOGO_1.webp" 
-          alt="Loading" 
-          className={styles.logo}
-        />
+        <img src="/LOGO_1.webp" alt="Loading" className={styles.logo} />
         <div className={styles.loadingText}>Загрузка...</div>
       </div>
     </div>

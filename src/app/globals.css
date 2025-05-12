@@ -25,16 +25,29 @@ body::before {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-image: url('/bg1.jpg');
+  background-image: url('/home.webp');
   background-size: 80% auto; 
   background-position: center left;
   background-repeat: no-repeat;
   -webkit-transform: translateZ(0);
-  /* filter: blur(3px); */
+
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  body::before {
+    z-index: -1;
+  }	
+}
+
+  @media (max-width: 450px) {
+    body::before {
+      background-image: url('/home-mob.webp');
+    }	
+    
 }
 
 /* Scroll Behavior Improvements */
