@@ -31,11 +31,11 @@ export default function CookieBanner() {
     <>
       <div className={styles.banner}>
         <p className={styles.text}>
-          Мы используем файлы cookie для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с нашей политикой использования cookie.
+          Для обеспечения удобства пользователей ASrealt.by и улучшения сервисов используются файлы cookies.
         </p>
         <div className={styles.buttons}>
+        <button className={styles.settingsButton} onClick={() => setShowSettings(true)}>Настроить</button>
           <button className={styles.button} onClick={handleAccept}>Принять</button>
-           <button className={styles.settingsButton} onClick={() => setShowSettings(true)}>Настроить</button>
            <button className={styles.declineButton} onClick={handleDecline}>Отклонить</button>
          
         </div>

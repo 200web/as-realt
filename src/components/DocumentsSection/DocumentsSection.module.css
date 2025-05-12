@@ -43,7 +43,7 @@
 .documentInfo {
   display: flex;
   align-items: flex-start;
-  gap: 70px;
+  gap: 20px;
 }
 
 .downloadIcon {
@@ -79,6 +79,7 @@
   font-size: 20px;
   font-weight: 300;
   margin: 0 0 8px 0;
+  max-width: 400px;
 }
 
 .documentFormat {
@@ -120,6 +121,13 @@
 @media (max-width: 1200px) {
   .container {
     padding: 60px 40px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .documentTitle {
+    max-width: 300px;
+    font-size: 18px;
   }
 }
 

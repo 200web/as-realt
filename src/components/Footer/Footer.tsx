@@ -79,8 +79,6 @@ export default function Footer() {
               >
                 Специалисты
               </a>
-            </div>
-            <div className={styles.navColumn}>
               <a 
                 href="#stages"
                 className={styles.navLink}
@@ -88,7 +86,8 @@ export default function Footer() {
               >
                 Этапы работы
               </a>
-              
+            </div>
+            <div className={styles.navColumn}>
               <a 
                 href="#testimonials"
                 className={styles.navLink}
@@ -111,6 +110,30 @@ export default function Footer() {
                 onClick={(e) => handleAnchorNavigation(e, 'contacts')}
               >
                 Контакты
+              </a>
+
+              <a 
+                href="#documents"
+                className={styles.navLink}
+                onClick={(e) => handleAnchorNavigation(e, 'docs')}
+              >
+                Документы агентства
+              </a>
+              
+              <a 
+                href="/documents/cookies.docx"
+                className={styles.navLink}
+                // onClick={(e) => handleAnchorNavigation(e, 'contacts')}
+              >
+                Политика в отношении обработки cookies
+              </a>
+
+              <a 
+                href="/documents/user_data.docx"
+                className={styles.navLink}
+                // onClick={(e) => handleAnchorNavigation(e, 'contacts')}
+              >
+                Политика в отношении обработки персональных данных
               </a>
             </div>
           </nav>
