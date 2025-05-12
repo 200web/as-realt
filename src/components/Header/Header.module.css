@@ -60,7 +60,7 @@
   background: none;
   border: none;
   color: #BA9778;
-  font-size: 32px;
+  font-size: 38px;
   cursor: pointer;
   z-index: 1001;
 }
@@ -161,6 +161,7 @@
     height: auto;
   }
   .mobileLogo {
+    
     width: 50px;
     height: auto;
     padding-top: 5px;
@@ -250,10 +251,10 @@
   .mobileLogo {
     width: 50px;
     height: auto;
-    position: absolute;
+    /* position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: -10px;
+    top: -10px; */
     z-index: 1002; /* Higher than other elements to ensure visibility */
   }
 

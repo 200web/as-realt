@@ -17,29 +17,29 @@ export default function DocumentsSection() {
   const documents: Document[] = [
     {
       id: 1,
-      title: 'Проектная декларация 77-002245',
+      title: 'Лицензия',
       fileFormat: 'PDF',
-      fileSize: '630.35 KB',
-      date: '09.01.2024 года',
-      organization: 'Частное предприятие "Агентство недвижимости"',
+      fileSize: '82.0 KB',
+      date: '08.01.2025 года',
+      organization: 'Частное унитарное предприятие "Агентство АС недвижимости"',
       downloadUrl: '#'
     },
     {
       id: 2,
-      title: 'Проектная декларация 77-002245',
+      title: 'Свидетельство о государственной регистрации',
       fileFormat: 'PDF',
-      fileSize: '630.35 KB',
-      date: '09.01.2024 года',
-      organization: 'Частное предприятие "Агентство недвижимости"',
+      fileSize: '82.0 KB',
+      date: '08.01.2025 года',
+      organization: 'Частное унитарное предприятие "Агентство АС недвижимости"',
       downloadUrl: '#'
     },
     {
       id: 3,
-      title: 'Проектная декларация 77-002245',
+      title: 'Страховой полис',
       fileFormat: 'PDF',
       fileSize: '630.35 KB',
       date: '09.01.2024 года',
-      organization: 'Частное предприятие "Агентство недвижимости"',
+      organization: 'Частное унитарное предприятие "Агентство АС недвижимости"',
       downloadUrl: '#'
     }
   ];

@@ -91,7 +91,7 @@ const Header = () => {
             }`}
           >
             {/* Left element: Login link */}
-            <div className={styles.mobileLoginLink}>
+            {/* <div className={styles.mobileLoginLink}>
               <a
                 href="#"
                 onClick={(e) => {
@@ -101,7 +101,7 @@ const Header = () => {
               >
                 Личный кабинет
               </a>
-            </div>
+            </div> */}
 
             {/* Center element: Logo */}
             {!mobileMenuOpen && (

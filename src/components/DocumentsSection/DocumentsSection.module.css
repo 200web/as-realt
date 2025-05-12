@@ -129,13 +129,32 @@
     margin-left: 20px !important;
     margin-right: 20px !important;
   }
-  
+  .downloadIcon {
+    width: 45px;
+    height: 45px;
+  }
+  .downloadIcon svg {
+    width: 20px;
+  }
+  .documentTitle {
+    font-size: 18px;
+  }
+  .documentFormat {
+    font-size: 14px;
+  }
+  .documentDate {
+    font-size: 14px;
+  }
+  .documentOrg {
+    font-size: 14px;
+  }
   .documentItem {
     flex-direction: column;
     gap: 16px;
+    padding: 30px 0;
   }
   .documentInfo{
-    gap: 30px;
+    gap: 20px;
   }
   .documentMeta {
     align-items: flex-start;
