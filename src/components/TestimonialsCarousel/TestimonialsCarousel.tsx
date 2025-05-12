@@ -15,6 +15,7 @@ export default function TestimonialsCarousel() {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [testimonialsPerSlide, setTestimonialsPerSlide] = useState(3);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/published`)
@@ -31,9 +32,17 @@ export default function TestimonialsCarousel() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 820) setTestimonialsPerSlide(1);
-      else if (window.innerWidth <= 1240) setTestimonialsPerSlide(2);
-      else setTestimonialsPerSlide(3);
+      const width = window.innerWidth;
+      if (width <= 820) {
+        setTestimonialsPerSlide(1);
+        setIsMobile(true);
+      } else if (width <= 1240) {
+        setTestimonialsPerSlide(2);
+        setIsMobile(false);
+      } else {
+        setTestimonialsPerSlide(3);
+        setIsMobile(false);
+      }
     };
 
     handleResize();
@@ -61,6 +70,14 @@ export default function TestimonialsCarousel() {
             <button className={styles.navButton} onClick={nextSlide}>→</button>
           </div>
         </div>
+
+        {/* Мобильные стрелки */}
+        {isMobile && (
+          <div className={styles.mobileNavigation}>
+            <button className={`${styles.mobileNavButton} ${styles.mobileNavPrev}`} onClick={prevSlide}>←</button>
+            <button className={`${styles.mobileNavButton} ${styles.mobileNavNext}`} onClick={nextSlide}>→</button>
+          </div>
+        )}
 
         <div className={styles.carouselContainer}>
           <div
