@@ -8,6 +8,7 @@ interface Testimonial {
   name: string;
   date: string;
   review: string;
+  source?: string;
 }
 
 export default function TestimonialsCarousel() {
@@ -81,7 +82,12 @@ export default function TestimonialsCarousel() {
                     {slideTestimonials.map((t) => (
                       <div key={t.id} className={styles.testimonialCard}>
                         <div className={styles.testimonialHeader}>
-                          <h3 className={styles.testimonialAuthor}>{t.name}</h3>
+                          <div className={styles.testimonialHeaderTop}>
+                            <h3 className={styles.testimonialAuthor}>{t.name}</h3>
+                            {t.source && (
+                              <span className={styles.testimonialSource}>{t.source}</span>
+                            )}
+                          </div>
                           <span className={styles.testimonialDate}>{t.date}</span>
                         </div>
                         <p className={styles.testimonialContent}>{t.review}</p>

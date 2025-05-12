@@ -11,6 +11,7 @@ interface Review {
   name: string;
   date: string;
   review: string;
+  source: string;
 }
 
 interface Employee {
@@ -29,6 +30,7 @@ export default function ReviewsSection() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Получаем сотрудника по ссылке
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/employees/link/${link}`)
       .then((res) => res.json())
       .then((data) => {
@@ -37,15 +39,14 @@ export default function ReviewsSection() {
         }
       });
 
-      fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/published`)
-      .then(res => res.json())
-      .then(data => {
+    // Получаем отзывы только для этого сотрудника
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/employee-reviews/${link}`)
+      .then((res) => res.json())
+      .then((data) => {
         if (data.status === "ok") {
-          console.log('Отзывы с бэка:', data.reviews);
           setReviews(data.reviews);
         }
       });
-
   }, [link]);
 
   useEffect(() => {
@@ -61,60 +62,58 @@ export default function ReviewsSection() {
 
   return (
     <section className={styles.loginSection}>
-         {/* <a href="http://localhost:3000/#specialists" className={styles.backArrow}>
-  &lt; Назад
-</a> */}
-    <div className={styles.container}>
- 
-    <div className={styles.topRow}>
-    <a href="https://www.asrealt.by/#specialists" className={styles.backArrow}>
-      &lt; Назад
-    </a>
-  </div>
-      <div className={styles.infBlock}>
-        
-        <div className={styles.photo}>
-          <img src={employee.photo_url} alt="portrait" />
+      <div className={styles.container}>
+        <div className={styles.topRow}>
+          <a href="https://www.asrealt.by/#specialists" className={styles.backArrow}>
+            &lt; Назад
+          </a>
         </div>
-        <div className={styles.mainInfo}>
-          <div className={styles.namePos}>
-            <span className={styles.name}>{employee.name}</span>
-            <span className={styles.pos}>{employee.position}</span>
+
+        <div className={styles.infBlock}>
+          <div className={styles.photo}>
+            <img src={employee.photo_url} alt="portrait" />
           </div>
-          <div className={styles.phoneEmail}>
-            {/* Удалён телефон */}
-            <div className={styles.email}>
-              <img src={mailIcon.src} alt="mail" height={42} width={42} />
-              <span>asrealt@mail.ru</span>
+          <div className={styles.mainInfo}>
+            <div className={styles.namePos}>
+              <span className={styles.name}>{employee.name}</span>
+              <span className={styles.pos}>{employee.position}</span>
             </div>
+            <div className={styles.phoneEmail}>
+              <div className={styles.email}>
+                <img src={mailIcon.src} alt="mail" height={42} width={42} />
+                <span>asrealt@mail.ru</span>
+              </div>
+            </div>
+            {!isMobile && employee.description && employee.description.toLowerCase() !== "null" && (
+              <div className={styles.descr}>
+                <span>{employee.description}</span>
+              </div>
+            )}
           </div>
-          {!isMobile && employee.description && employee.description.toLowerCase() !== "null" && (
+          {isMobile && employee.description && employee.description.toLowerCase() !== "null" && (
             <div className={styles.descr}>
               <span>{employee.description}</span>
             </div>
           )}
         </div>
-        {isMobile && employee.description && employee.description.toLowerCase() !== "null" && (
-          <div className={styles.descr}>
-            <span>{employee.description}</span>
-          </div>
-        )}
-      </div>
 
-      <div className={styles.reviewsBlock}>
-        <div className={styles.header}>
-          <span>Отзывы о специалисте</span>
+        <div className={styles.reviewsBlock}>
+       <div className={styles.headerWithButton}>
+  <span className={styles.title}>Отзывы о специалисте</span>
+  <a href="/makeReview" className={styles.leaveButton}>Оставить отзыв</a>
+</div>
+
+          {reviews.map((r) => (
+            <ReviewCard
+              key={r.id}
+              author={r.name}
+              source={r.source || "Yandex.ru"}
+              date={r.date}
+              text={r.review}
+            />
+          ))}
         </div>
-        {reviews.map((r) => (
-          <ReviewCard
-            key={r.id}
-            author={r.name}
-            date={r.date}
-            text={r.review}
-          />
-        ))}
       </div>
-    </div>
-  </section>
+    </section>
   );
 }

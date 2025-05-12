@@ -108,6 +108,56 @@
   background-color: #d9c09b;
 }
 
+
+.agreementCheckbox {
+  margin-top: 0px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkboxInput {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.customCheckbox {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-right: 10px;
+}
+
+.checkboxInput:checked ~ .customCheckbox:after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 10px;
+  border: solid #cbb18b;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkboxError {
+  border-color: #ff6b6b;
+}
+
+.checkboxText {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
 /* Responsive */
 @media (max-width: 992px) {
   .infBlock {
@@ -176,4 +226,10 @@
     font-size: 32px;
     text-align: center;
   }
+}
+
+@media (max-width: 450px) {
+  .loginSection {
+    padding: 100px 0px 100px 0px;
+}
 }

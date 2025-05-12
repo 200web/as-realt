@@ -3,13 +3,14 @@ import styles from "./ReviewCard.module.css";
 
 interface ReviewCardProps {
   author: string;
-  // source: string;
+  source: string;
   date: string;
   text: string;
 }
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({
   author,
+  source,
   date,
   text,
 }) => (
@@ -17,7 +18,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({
     <div className={styles.cardHeader}>
       <div className={styles.nameEmail}>
         <span className={styles.name}>{author}</span>
-        {/* <span className={styles.email}>{source}</span> */}
+        <span className={styles.email}>{source}</span>
       </div>
       <div className={styles.date}>{date}</div>
     </div>

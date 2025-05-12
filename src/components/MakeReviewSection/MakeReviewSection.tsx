@@ -10,7 +10,16 @@ export default function MakeReviewSection() {
     name: '',
     phone: '',
     review: '',
+    agreementChecked: false
   });
+
+  const [formErrors, setFormErrors] = useState({
+    name: false,
+    phone: false,
+    review: false,
+    agreement: false
+  });
+
   const [reviews, setReviews] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -34,27 +43,52 @@ export default function MakeReviewSection() {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target as HTMLInputElement;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+
+    if (formErrors[name as keyof typeof formErrors]) {
+      setFormErrors((prev) => ({ ...prev, [name]: false }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: formData.name,
-        phone: formData.phone,
-        review: formData.review,
-        date: new Date().toLocaleDateString('ru-RU'),
-      }),
-    });
-    const data = await res.json();
-    if (data.status === 'ok') {
-      setFormData({ name: '', phone: '', review: '' });
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 4000); // через 4 секунды вернуть кнопку обратно
+
+    const errors = {
+      name: formData.name.trim() === '',
+      phone: formData.phone.trim() === '',
+      review: formData.review.trim() === '',
+      agreement: !formData.agreementChecked
+    };
+
+    setFormErrors(errors);
+
+    if (!Object.values(errors).some(Boolean)) {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          review: formData.review,
+          date: new Date().toLocaleDateString('ru-RU')
+        })
+      });
+
+      const data = await res.json();
+      if (data.status === 'ok') {
+        setFormData({
+          name: '',
+          phone: '',
+          review: '',
+          agreementChecked: false
+        });
+        setSubmitted(true);
+        setTimeout(() => setSubmitted(false), 4000);
+      }
     }
   };
 
@@ -92,13 +126,29 @@ export default function MakeReviewSection() {
                 {submitted ? 'Спасибо за отзыв!' : 'Отправить отзыв'}
               </button>
             </div>
+
+            <div className={styles.agreementCheckbox}>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  name="agreementChecked"
+                  checked={formData.agreementChecked}
+                  onChange={handleChange}
+                  className={styles.checkboxInput}
+                />
+                <span className={`${styles.customCheckbox} ${formErrors.agreement ? styles.checkboxError : ''}`}></span>
+                <span className={styles.checkboxText}>
+                  Я соглашаюсь с обработкой персональных данных
+                </span>
+              </label>
+            </div>
           </form>
 
           {reviews.map((r: any) => (
             <ReviewCard
               key={r.id}
               author={r.name}
-              // source={r.phone}
+              source={"Yandex.ru"}
               date={r.date}
               text={r.review}
             />
