@@ -22,7 +22,7 @@ export default function DocumentsSection() {
       fileSize: '82.0 KB',
       date: '08.01.2025 года',
       organization: 'Частное унитарное предприятие "Агентство АС недвижимости"',
-      downloadUrl: '#'
+      downloadUrl: '/documents/licenzia.pdf'
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ export default function DocumentsSection() {
       fileSize: '82.0 KB',
       date: '08.01.2025 года',
       organization: 'Частное унитарное предприятие "Агентство АС недвижимости"',
-      downloadUrl: '#'
+      downloadUrl: '/documents/registraciya.pdf'
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ export default function DocumentsSection() {
       fileSize: '630.35 KB',
       date: '09.01.2024 года',
       organization: 'Частное унитарное предприятие "Агентство АС недвижимости"',
-      downloadUrl: '#'
+      downloadUrl: '/documents/strahovka.pdf'
     }
   ];
 
@@ -53,7 +53,7 @@ export default function DocumentsSection() {
           {documents.map(document => (
             <div key={document.id} className={styles.documentItem}>
               <div className={styles.documentInfo}>
-                <a href={document.downloadUrl} className={styles.downloadLink}>
+                <a href={document.downloadUrl} target="_blank" rel="noopener noreferrer" className={styles.downloadLink}>
                   <div className={styles.downloadIcon}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M12 16L12 8" stroke="#636363" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
