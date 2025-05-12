@@ -31,7 +31,7 @@ export default function CookieBanner() {
     <>
       <div className={styles.banner}>
         <p className={styles.text}>
-          Для обеспечения удобства пользователей ASrealt.by и улучшения сервисов используются файлы cookies.
+        Для обеспечения удобства пользователей Realt.by, улучшения сервисов и предоставления персонализированных рекомендаций используются файлы cookies.
         </p>
         <div className={styles.buttons}>
         <button className={styles.settingsButton} onClick={() => setShowSettings(true)}>Настроить</button>

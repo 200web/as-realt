@@ -5,10 +5,10 @@
   transform: translate(-50%, -50%);
   width: 100%;
   max-width: 85%;
-  background-color: #20222bf5;
+  background-color: #272a34e6;
   color: rgba(255, 255, 255, 0.8);
-  padding: 2rem;
-  /* border-radius: 2px; */
+  padding: 1.5rem;
+  border-radius: 2px;
   /* box-shadow: 0 0 5px rgba(0,0,0,0.5); */
   z-index: 1000;
   text-align: center;
@@ -16,6 +16,7 @@
 
 .text {
   margin: 0 0 1.2rem 0;
+  line-height: 1.4;
   font-size: 14px;
   font-weight: 300;
 }
@@ -48,16 +49,18 @@
   /* border-radius: 2px; */
   cursor: pointer;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .declineButton {
   font-family: 'Montserrat', sans-serif;
   width: 120px;
-  background-color: rgb(71, 69, 79);
+  background-color: rgb(86, 83, 96);
   color: #fff;
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
@@ -65,14 +68,14 @@
     top: auto;
     bottom: 20px;
     left: 50%;
+    max-width: 700px;
     transform: translateX(-50%);
     border-radius: 4px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    padding: 1.5rem 2rem;
+    padding: 1rem 2rem;
   }
 
   .text {
-    font-size: 15px;
     margin-bottom: 1rem;
   }
 
