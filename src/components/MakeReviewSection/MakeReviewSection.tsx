@@ -61,6 +61,7 @@ export default function MakeReviewSection() {
       name: formData.name.trim() === '',
       phone: formData.phone.trim() === '',
       review: formData.review.trim() === '',
+      source: formData.review.trim() === '',
       agreement: !formData.agreementChecked
     };
 
@@ -74,6 +75,7 @@ export default function MakeReviewSection() {
           name: formData.name,
           phone: formData.phone,
           review: formData.review,
+          source: 'Наш сайт',
           date: new Date().toLocaleDateString('ru-RU')
         })
       });
@@ -148,7 +150,7 @@ export default function MakeReviewSection() {
             <ReviewCard
               key={r.id}
               author={r.name}
-              source={"Yandex.ru"}
+              source={r.source} 
               date={r.date}
               text={r.review}
             />

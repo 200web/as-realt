@@ -40,7 +40,7 @@ export default function ReviewsSection() {
       });
 
     // Получаем отзывы только для этого сотрудника
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/employee-reviews/${link}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/employee-reviews/published/${link}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "ok") {

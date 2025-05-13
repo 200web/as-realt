@@ -21,7 +21,6 @@ type Review = {
   is_published: number;
 };
 
-// Для хранения состояния отзывов по сотруднику: видны ли и их список
 type EmployeeReviews = {
   show: boolean;
   reviews: Review[];
@@ -37,12 +36,14 @@ export default function EmployeesAdmin() {
     description: '',
     link: '',
   });
-  // объект, где ключ – employee.link, значение содержит { show, reviews }
-  const [employeeReviews, setEmployeeReviews] = useState<Record<string, EmployeeReviews>>({});
 
+  const [employeeReviews, setEmployeeReviews] = useState<Record<string, EmployeeReviews>>({});
   const router = useRouter();
 
-  // Загружаем список сотрудников
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
+
   const fetchEmployees = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/employees`);
     const data = await res.json();
@@ -50,10 +51,6 @@ export default function EmployeesAdmin() {
       setEmployees(data.employees);
     }
   };
-
-  useEffect(() => {
-    fetchEmployees();
-  }, []);
 
   const handleDelete = async (id: number) => {
     if (!confirm('Удалить сотрудника?')) return;
@@ -93,41 +90,38 @@ export default function EmployeesAdmin() {
     }
   };
 
-  // Функция для переключения показа отзывов по сотруднику
   const toggleReviews = async (employeeLink: string) => {
-    setEmployeeReviews((prev) => {
-      const current = prev[employeeLink] || { show: false, reviews: [] };
-      return { 
-        ...prev, 
-        [employeeLink]: { ...current, show: !current.show } 
-      };
-    });
+    const prevShow = employeeReviews[employeeLink]?.show ?? false;
 
-    // Если отзывы ещё не загружены для этого сотрудника, или если они скрывались и повторно показываются —
-    // делаем запрос
-    if (!employeeReviews[employeeLink]?.reviews || !employeeReviews[employeeLink]?.show) {
+    if (!prevShow) {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/employee-reviews/${employeeLink}`);
       const data = await res.json();
       if (data.status === 'ok') {
         setEmployeeReviews((prev) => ({
           ...prev,
-          [employeeLink]: { 
-            show: true, 
-            reviews: data.reviews 
+          [employeeLink]: {
+            show: true,
+            reviews: data.reviews,
           },
         }));
       }
+    } else {
+      setEmployeeReviews((prev) => ({
+        ...prev,
+        [employeeLink]: {
+          ...prev[employeeLink],
+          show: false,
+        },
+      }));
     }
   };
 
-  // Функция для переключения галочки у отзыва
   const toggleReviewPublish = async (employeeLink: string, reviewId: number) => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/employee-reviews/${reviewId}/toggle`, {
       method: 'PATCH',
     });
     const data = await res.json();
     if (data.status === 'ok') {
-      // После успешного переключения перезапросим отзывы для сотрудника, чтобы обновить данные
       const fetchRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/employee-reviews/${employeeLink}`);
       const fetchData = await fetchRes.json();
       if (fetchData.status === 'ok') {
@@ -145,62 +139,10 @@ export default function EmployeesAdmin() {
         <button className={styles.back} onClick={() => router.push('/admin/dashboard')}>
           &lt; Назад
         </button>
-        <h1 className={styles.title}>Сотрудники</h1>
 
-        <div className={styles.table}>
-          <div className={`${styles.row} ${styles.header}`}>
-            <div>Имя</div>
-            <div>Должность</div>
-            <div>Описание</div>
-            <div>Действие</div>
-          </div>
-          {employees.map((emp) => (
-            <div key={emp.id}>
-              <div className={styles.row}>
-                <div>{emp.name}</div>
-                <div>{emp.position}</div>
-                <div>{emp.description}</div>
-                <div>
-                <button onClick={() => toggleReviews(emp.link)} style={{ marginRight: '10px', padding: '0px 2px' }}>
-                    {employeeReviews[emp.link]?.show ? 'Скрыть' : 'Отзывы'}
-                  </button>
-
-                <button onClick={() => handleDelete(emp.id)}>Удалить</button>
-               
-               
-                </div>
-              </div>
-              {/* Отображаем отзывы, если они открыты */}
-              {employeeReviews[emp.link]?.show && (
-                <div className={styles.reviewsContainer}>
-                      <h3 className={styles.reviewsTitle}>Отзывы о специалисте</h3>
-                  {employeeReviews[emp.link].reviews.length ? (
-                    employeeReviews[emp.link].reviews.map((rev) => (
-                      <div key={rev.id} className={styles.reviewRow}>
-                      <div>{rev.name}</div>
-                      <div>{rev.review}</div>
-                      <div>{rev.date}</div>
-                      <div>
-                        <input
-                          type="checkbox"
-                          checked={rev.is_published === 1}
-                          onChange={() => toggleReviewPublish(emp.link, rev.id)}
-                        />
-                      </div>
-                    </div>
-                    
-                    ))
-                  ) : (
-                    <div>Нет отзывов</div>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className={styles.centered}>
-          <button className={styles.addButton} onClick={() => setShowForm(!showForm)}>
+        <div className={styles.headerRow}>
+          <h1 className={styles.title}>Сотрудники</h1>
+          <button className={styles.addButton} onClick={() => setShowForm((prev) => !prev)}>
             {showForm ? 'Скрыть форму' : 'Добавить сотрудника'}
           </button>
         </div>
@@ -246,6 +188,56 @@ export default function EmployeesAdmin() {
             </button>
           </div>
         )}
+
+        <div className={styles.table}>
+          <div className={`${styles.row} ${styles.header}`}>
+            <div>Имя</div>
+            <div>Должность</div>
+            <div>Описание</div>
+            <div>Действие</div>
+          </div>
+          {employees.map((emp) => (
+            <div key={emp.id}>
+              <div className={styles.row}>
+                <div>{emp.name}</div>
+                <div>{emp.position}</div>
+                <div>{emp.description}</div>
+                <div>
+                  <button onClick={() => toggleReviews(emp.link)} style={{ marginRight: '10px', padding: '0px 2px' }}>
+                    {employeeReviews[emp.link]?.show ? 'Скрыть' : 'Отзывы'}
+                  </button>
+                  <button onClick={() => handleDelete(emp.id)}>Удалить</button>
+                </div>
+              </div>
+              {employeeReviews[emp.link]?.show && (
+                <div className={styles.reviewsContainer}>
+                  <h3 className={styles.reviewsTitle}>Отзывы о специалисте</h3>
+                  {employeeReviews[emp.link].reviews.length ? (
+                    employeeReviews[emp.link].reviews.map((rev) => (
+                      <div key={rev.id} className={styles.reviewRow}>
+                        <div>{rev.name}</div>
+                        <div>{rev.review}</div>
+                        <div>{rev.date}</div>
+                        <div>
+                          <label>
+                            <input
+                              type="checkbox"
+                              checked={rev.is_published === 1}
+                              onChange={() => toggleReviewPublish(emp.link, rev.id)}
+                            />{' '}
+                            Опубликован
+                          </label>
+                        </div>
+                      </div>
+                    ))
+                  ) : (
+                    <div>Нет отзывов</div>
+                  )}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

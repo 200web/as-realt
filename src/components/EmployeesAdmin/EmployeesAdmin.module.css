@@ -31,12 +31,40 @@
   color: #000;
 }
 
+.headerRow {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 .title {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 40px;
   color: #111;
   text-align: center;
+}
+
+.addButton {
+  position: absolute;
+  right: 0;
+  min-width: 250px;
+  display: inline-block;
+  padding: 15px 45px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #b89567;
+  color: #20222B;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.addButton:hover {
+  background-color: #d9c09b;
 }
 
 .table {
@@ -112,37 +140,6 @@
   margin-top: 20px;
 }
 
-
-@media (max-width: 768px) {
-  .reviewRow {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-.centered {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-
-.addButton {
-  margin-top: 30px;
-  font-size: 16px;
-  padding: 10px 20px;
-  background-color: #c0d100;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.addButton:hover {
-  background-color: #a0b100;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -174,7 +171,6 @@
   background-color: #111;
 }
 
-
 @media (max-width: 768px) {
   .row {
     grid-template-columns: 1fr;
@@ -183,5 +179,11 @@
 
   .header {
     display: none;
+  }
+
+  .addButton {
+    width: 100%;
+    right: 0;
+    padding: 12px 24px;
   }
 }
