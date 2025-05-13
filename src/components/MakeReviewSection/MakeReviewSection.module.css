@@ -6,9 +6,8 @@
   display: flex;
   justify-content: center;
   overflow: hidden;
-  /* background-image: url("/home.webp"); */
-  /* background-size: cover;
-  background-position: center; */
+  background-size: cover;
+  background-position: center;
 }
 
 .container {

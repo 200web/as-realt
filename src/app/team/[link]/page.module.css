@@ -29,7 +29,7 @@
 .imageContainer {
   max-width: 1400px;
   width: 100%;
-  background-color: #20222b;
+  background-color: #20222B;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
@@ -57,7 +57,7 @@
   .fullWidthImageSection {
     height: auto;
   }
-
+  
   .fullWidthImage {
     height: 300px;
     object-fit: cover;
