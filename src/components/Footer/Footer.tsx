@@ -120,21 +120,12 @@ export default function Footer() {
                 Документы агентства
               </a>
               
-              <a 
-                href="/documents/cookies.docx"
-                className={styles.navLink}
-                // onClick={(e) => handleAnchorNavigation(e, 'contacts')}
-              >
-                Политика в отношении обработки cookies
-              </a>
-
-              <a 
-                href="/documents/user_data.docx"
-                className={styles.navLink}
-                // onClick={(e) => handleAnchorNavigation(e, 'contacts')}
-              >
-                Политика в отношении обработки персональных данных
-              </a>
+              <a href="/privacy-policy" className={styles.navLink}>
+  Политика в отношении обработки cookies
+</a>
+<a href="/personal-data-policy" className={styles.navLink}>
+  Политика в отношении обработки персональных данных
+</a>
             </div>
           </nav>
         </div>

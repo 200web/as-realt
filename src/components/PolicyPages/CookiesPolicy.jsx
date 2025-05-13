@@ -5,9 +5,9 @@ export default function CookiesPolicy() {
     <section className={styles.сookiesPolicySection}>
       <div className={styles.container}>
 
-        <p className={styles.paragraph}>УТВЕРЖДЕНО<br />
+        <p className={styles.paragraph}>Утверждено<br />
         приказ директора Частного предприятия «Агентство АС недвижимости»<br />
-        от ______________ г. № ___</p>
+        от 1 апреля  2025г. № 4</p>
 
         <h1 className={styles.heading1}>
           ПОЛОЖЕНИЕ<br />
@@ -71,28 +71,40 @@ export default function CookiesPolicy() {
         </p>
 
         <h2 className={styles.heading2}>Приложение: список используемых файлов cookies</h2>
-        <p className={styles.paragraph}>
-          Название — Описание — Тип — Срок хранения:<br /><br />
-          _ga, _ga_* — Google Analytics, просмотры страниц — Аналитические — 24 месяца<br />
-          _gid — Google Analytics, просмотры страниц — Аналитические — 1 день<br />
-          _gcl_* — Google Tag Manager/Analytics, сервисные запросы — Аналитические — 1 минута<br />
-          _ym_isad — Яндекс.Метрика, просмотры страниц — Аналитические — 2 дня<br />
-          _ym_d — Яндекс.Метрика, дата первого посещения — Аналитические — 12 месяцев<br />
-          _ym_uid — Яндекс.Метрика, уникальный ID — Аналитические — 12 месяцев<br />
-          _ym_visorc — Яндекс.Метрика, работа вебвизора — Аналитические — 30 минут<br />
-          _yasc — Яндекс.Метрика, источники трафика — Аналитические — 12 месяцев<br />
-          yashr — Яндекс.Метрика, вспомогательная информация — Аналитические — 12 месяцев<br />
-          _gcl_au — Google Ads/Поисковая реклама — Рекламные — 3 месяца<br />
-          _fbp — Facebook Ads — Рекламные — 1 день<br />
-          _tt_enable_cookie — TikTok Ads — Рекламные — 13 месяцев<br />
-          _ttp — TikTok, эффективность рекламы — Рекламные — 13 месяцев<br />
-          PHPSESSID — ID сессии — Технические — Сессионные<br />
-          BITRIX_SM_* — CMS Bitrix: баннеры, логин и т.д. — Аналитические — 24 часа<br />
-          *_ct_ref_c — источник перехода — Аналитические — 24 часа<br />
-          marquiz__url_params — Marquiz, UTM — Аналитические — 3 месяца<br />
-          marquiz__count-opened_* — Marquiz, количество открытий — Аналитические — 3 месяца<br />
-          cookiesUser — Настройки cookies — Технические — 12 дней
-        </p>
+
+        <div className={styles.tableWrapper}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Описание</th>
+                <th>Тип</th>
+                <th>Срок хранения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>_ga, _ga_*</td><td>Google Analytics, просмотры страниц</td><td>Аналитические</td><td>24 месяца</td></tr>
+              <tr><td>_gid</td><td>Google Analytics, просмотры страниц</td><td>Аналитические</td><td>1 день</td></tr>
+              <tr><td>_gcl_*</td><td>Google Tag Manager/Analytics, сервисные запросы</td><td>Аналитические</td><td>1 минута</td></tr>
+              <tr><td>_ym_isad</td><td>Яндекс.Метрика, просмотры страниц</td><td>Аналитические</td><td>2 дня</td></tr>
+              <tr><td>_ym_d</td><td>Яндекс.Метрика, дата первого посещения</td><td>Аналитические</td><td>12 месяцев</td></tr>
+              <tr><td>_ym_uid</td><td>Яндекс.Метрика, уникальный ID</td><td>Аналитические</td><td>12 месяцев</td></tr>
+              <tr><td>_ym_visorc</td><td>Яндекс.Метрика, работа вебвизора</td><td>Аналитические</td><td>30 минут</td></tr>
+              <tr><td>_yasc</td><td>Яндекс.Метрика, источники трафика</td><td>Аналитические</td><td>12 месяцев</td></tr>
+              <tr><td>yashr</td><td>Яндекс.Метрика, вспомогательная информация</td><td>Аналитические</td><td>12 месяцев</td></tr>
+              <tr><td>_gcl_au</td><td>Google Ads/Поисковая реклама</td><td>Рекламные</td><td>3 месяца</td></tr>
+              <tr><td>_fbp</td><td>Facebook Ads</td><td>Рекламные</td><td>1 день</td></tr>
+              <tr><td>_tt_enable_cookie</td><td>TikTok Ads</td><td>Рекламные</td><td>13 месяцев</td></tr>
+              <tr><td>_ttp</td><td>TikTok, эффективность рекламы</td><td>Рекламные</td><td>13 месяцев</td></tr>
+              <tr><td>PHPSESSID</td><td>ID сессии</td><td>Технические</td><td>Сессионные</td></tr>
+              <tr><td>BITRIX_SM_*</td><td>CMS Bitrix: баннеры, логин и т.д.</td><td>Аналитические</td><td>24 часа</td></tr>
+              <tr><td>*_ct_ref_c</td><td>Источник перехода</td><td>Аналитические</td><td>24 часа</td></tr>
+              <tr><td>marquiz__url_params</td><td>Marquiz, UTM</td><td>Аналитические</td><td>3 месяца</td></tr>
+              <tr><td>marquiz__count-opened_*</td><td>Marquiz, количество открытий</td><td>Аналитические</td><td>3 месяца</td></tr>
+              <tr><td>cookiesUser</td><td>Настройки cookies</td><td>Технические</td><td>12 дней</td></tr>
+            </tbody>
+          </table>
+        </div>
 
       </div>
     </section>

@@ -63,6 +63,16 @@
   font-weight: 500;
 }
 
+.highlight {
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.highlight:hover {
+  color: #45a2ff;
+}
+
 @media screen and (min-width: 768px) {
   .banner {
     top: auto;

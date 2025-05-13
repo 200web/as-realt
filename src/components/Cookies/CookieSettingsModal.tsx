@@ -58,9 +58,9 @@ export default function CookieSettingsModal({ onClose }: Props) {
     </p>
     </div >
     <div className={styles.info}>
-       <p>
-      Нажимая на кнопку "Сохранить настройки", вы даете согласие на обработку файлов cookies в соответствии с Политикой в отношении обработки файлов cookies
-      </p>
+    <p>
+  Нажимая на кнопку "Сохранить настройки", вы даете согласие на обработку файлов cookies в соответствии с <a href="/privacy-policy" className={styles.highlight}>Политикой в отношении обработки файлов cookies</a>.
+</p>
     </div>
 
         <div className={styles.actions}>

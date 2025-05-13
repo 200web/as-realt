@@ -79,3 +79,13 @@
   font-weight: 500;
   }
   
+  .highlight {
+    font-weight: 500;
+    color: #3b3b3b;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .highlight:hover {
+    color: #276aac;
+  }
+  

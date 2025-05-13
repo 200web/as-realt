@@ -30,9 +30,9 @@ export default function CookieBanner() {
   return (
     <>
       <div className={styles.banner}>
-        <p className={styles.text}>
-        Для обеспечения удобства пользователей ASrealt.by, улучшения сервисов и предоставления персонализированных рекомендаций используются файлы cookies.
-        </p>
+      <p className={styles.text}>
+  Для обеспечения удобства пользователей ASrealt.by, улучшения сервисов и предоставления персонализированных рекомендаций используются файлы <a href="/privacy-policy" className={styles.highlight}>cookies</a>.
+</p>
         <div className={styles.buttons}>
         <button className={styles.settingsButton} onClick={() => setShowSettings(true)}>Настроить</button>
           <button className={styles.button} onClick={handleAccept}>Принять</button>

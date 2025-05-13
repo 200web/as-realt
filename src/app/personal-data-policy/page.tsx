@@ -2,7 +2,7 @@
 
 import React from "react";
 import Header from "../../components/Header/Header";
-import CookiesPolicy from "../../components/DocumentsPages/CookiesPolicy";
+import PersonalDataPolicy from "../../components/PolicyPages/PersonalDataPolicy";
 import Footer from "../../components/Footer/Footer";
 import styles from "./page.module.css";
 
@@ -11,7 +11,7 @@ export default function DocumentPage() {
     <div className={styles.page}>
       <main className={styles.main}>
         <Header />
-        <CookiesPolicy />
+        <PersonalDataPolicy />
         <Footer />
       </main>
     </div>
