@@ -19,6 +19,17 @@ export default function RootLayout({
       <head>
         <meta name="format-detection" content="telephone=no"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        <link
+  rel="icon"
+  href="/icon-light.webp"
+  media="(prefers-color-scheme: light)"
+/>
+<link
+  rel="icon"
+  href="/icon-dark.png"
+  media="(prefers-color-scheme: dark)"
+/>
+
       </head>
       <body style={{
         margin: 0,

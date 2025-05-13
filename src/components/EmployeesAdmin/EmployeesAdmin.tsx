@@ -3,28 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './EmployeesAdmin.module.css';
+import { Employee, EmployeeReviews } from '@/types/employees';
 
-type Employee = {
-  id: number;
-  name: string;
-  position: string;
-  photo_url: string;
-  description: string;
-  link: string;
-};
-
-type Review = {
-  id: number;
-  name: string;
-  review: string;
-  date: string;
-  is_published: number;
-};
-
-type EmployeeReviews = {
-  show: boolean;
-  reviews: Review[];
-};
 
 export default function EmployeesAdmin() {
   const [employees, setEmployees] = useState<Employee[]>([]);
