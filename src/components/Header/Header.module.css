@@ -1,7 +1,7 @@
 .header {
   background: #20222B;
   color: white;
-  padding: 30px 0;
+  padding: 34px 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -60,7 +60,7 @@
   background: none;
   border: none;
   color: #BA9778;
-  font-size: 34px;
+  font-size: 36px;
   cursor: pointer;
   z-index: 1001;
 }
