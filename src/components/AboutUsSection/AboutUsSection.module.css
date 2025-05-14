@@ -2,7 +2,7 @@
   width: 100%;
   height: auto;
   position: relative;
-  padding-top: 170px; /* Account for fixed header, same as heroSection */
+  padding-top: 170px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -262,7 +262,11 @@
 }
 
 @media (max-width: 480px) {
-  /* Keep the gallery 2-column on smallest screens */
+ 
+  .aboutSection {
+    padding-top: 100px;
+  }
+
   .gallerySection {
     grid-template-columns: repeat(2, 1fr);
   }
