@@ -1,7 +1,7 @@
 .header {
   background: #20222B;
   color: white;
-  padding: 40px 0;
+  padding: 30px 0;
   position: fixed;
   width: 100%;
   top: 0;
@@ -60,7 +60,7 @@
   background: none;
   border: none;
   color: #BA9778;
-  font-size: 38px;
+  font-size: 34px;
   cursor: pointer;
   z-index: 1001;
 }
@@ -162,7 +162,7 @@
   }
   .mobileLogo {
     
-    width: 50px;
+    width: 40px;
     height: auto;
     padding-top: 5px;
   }
@@ -249,7 +249,7 @@
   }
   
   .mobileLogo {
-    width: 50px;
+    width: 40px;
     height: auto;
     /* position: absolute;
     left: 50%;
