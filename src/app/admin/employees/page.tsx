@@ -2,7 +2,7 @@
 
 import React from "react";
 import Header from "../../../components/Header/Header";
-import EmployeesAdmin from "../../../components/EmployeesAdmin/EmployeesAdmin";
+import EmployeesAdmin from "../../../components/admin/employees/EmployeesAdmin/EmployeesAdmin";
 import Footer from "../../../components/Footer/Footer";
 import styles from "./page.module.css";
 
