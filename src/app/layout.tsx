@@ -5,6 +5,7 @@ import ScrollFix from "../components/ScrollFix/ScrollFix";
 import LoadingOverlay from "../components/LoadingOverlay/LoadingOverlay";
 import InitCookies from '../components/Cookies/InitCookies';
 import CookieBanner from '../components/Cookies/CookieBanner';
+import { CookieBannerProvider } from '../context/CookieBannerContext';
 
 // Import our custom CSS adjustments
 import "../styles/container-adjustments.css";
@@ -38,11 +39,13 @@ export default function RootLayout({
         position: 'relative', // Create a new stacking context
         backgroundColor: '#121318' // Darker background color that matches the design
       }}>
-        <InitCookies /> 
-        <CookieBanner />
-        <LoadingOverlay />
-        <ScrollFix />
-        {children}
+        <CookieBannerProvider>
+          <InitCookies />
+          <CookieBanner />
+          <LoadingOverlay />
+          <ScrollFix />
+          {children}
+        </CookieBannerProvider>
       </body>
     </html>
   );

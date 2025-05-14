@@ -4,10 +4,13 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 import { useNavigation } from '../../hooks/useNavigation';
+import { useCookieBanner } from '@/context/CookieBannerContext';
 
 export default function Footer() {
   const [isMobile, setIsMobile] = useState(false);
   const { handleAnchorNavigation } = useNavigation();
+
+  const { show } = useCookieBanner();
 
   // Handle window resize for mobile detection
   useEffect(() => {
@@ -125,6 +128,9 @@ export default function Footer() {
 </a>
 <a href="/personal-data-policy" className={styles.navLink}>
   Политика в отношении обработки персональных данных
+</a>
+<a className={styles.navLink} onClick={show}>
+  Выбор настроек cookies
 </a>
             </div>
           </nav>

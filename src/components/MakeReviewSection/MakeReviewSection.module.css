@@ -156,6 +156,9 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.link {
+  color: inherit;
+}
 
 /* Responsive */
 @media (max-width: 992px) {

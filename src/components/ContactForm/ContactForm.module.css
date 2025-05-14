@@ -238,6 +238,9 @@
   background: #F1F1F1;
 }
 
+.link {
+  color: inherit;
+}
 
 
 @media (max-width: 1800px) {

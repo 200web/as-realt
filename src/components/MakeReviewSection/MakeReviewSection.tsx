@@ -140,7 +140,13 @@ export default function MakeReviewSection() {
                 />
                 <span className={`${styles.customCheckbox} ${formErrors.agreement ? styles.checkboxError : ''}`}></span>
                 <span className={styles.checkboxText}>
-                  Я соглашаюсь с обработкой персональных данных
+                  Я соглашаюсь с&nbsp;
+  <a
+    href="/personal-data-policy/"
+    className={styles.link}
+  >
+    политикой обработки персональных данных
+  </a>
                 </span>
               </label>
             </div>
