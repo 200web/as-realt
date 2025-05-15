@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import styles from './Footer.module.css';
-import { useNavigation } from '../../hooks/useNavigation';
-import { useCookieBanner } from '@/context/CookieBannerContext';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import styles from "./Footer.module.css";
+import { useNavigation } from "../../hooks/useNavigation";
+import { useCookieBanner } from "@/context/CookieBannerContext";
 
 export default function Footer() {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,16 +17,16 @@ export default function Footer() {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
+
     // Set initial value
     handleResize();
-    
+
     // Add event listener
-    window.addEventListener('resize', handleResize);
-    
+    window.addEventListener("resize", handleResize);
+
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -37,7 +37,11 @@ export default function Footer() {
           {/* Left side - Logo and agency info */}
           <div className={styles.leftSection}>
             <div className={styles.logoContainer}>
-              <img src="/LOGO_1.webp" alt="Логотип агентства" className={styles.logo} />
+              <img
+                src="/LOGO_1.webp"
+                alt="Логотип агентства"
+                className={styles.logo}
+              />
             </div>
             <div className={styles.agencyInfo}>
               <p className={styles.agencyName}>АГЕНТСТВО</p>
@@ -45,7 +49,9 @@ export default function Footer() {
               <p className={styles.agencySlogan}>Агентство AS недвижимости</p>
               <p className={styles.agencySlogan}>Вместе мы сможем больше!</p>
               {isMobile && (
-                <a href="tel:+375445630206" className={styles.agencyPhone}>+375 (44) 563-02-06</a>
+                <a href="tel:+375445630206" className={styles.agencyPhone}>
+                  +375 (44) 563-02-06
+                </a>
               )}
             </div>
           </div>
@@ -57,81 +63,81 @@ export default function Footer() {
               <Link href="/about-us" className={styles.navLink}>
                 Об агентстве
               </Link>
-              
+
               {/* Anchor links with navigation handler */}
-              <a 
-                href="#properties" 
+              <a
+                href="#properties"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'properties')}
+                onClick={(e) => handleAnchorNavigation(e, "properties")}
               >
                 Наши объекты
               </a>
-              
-              <a 
+
+              <a
                 href="#advantages"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'advantages')}
+                onClick={(e) => handleAnchorNavigation(e, "advantages")}
               >
                 Преимущества
               </a>
-              
-              <a 
+
+              <a
                 href="#specialists"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'specialists')}
+                onClick={(e) => handleAnchorNavigation(e, "specialists")}
               >
                 Специалисты
               </a>
-              <a 
+              <a
                 href="#stages"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'stages')}
+                onClick={(e) => handleAnchorNavigation(e, "stages")}
               >
                 Этапы работы
               </a>
-            </div>
-            <div className={styles.navColumn}>
-              <a 
-                href="#testimonials"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'testimonials')}
-              >
-                Отзывы
-              </a>
-              
-              <a 
+
+              <a
                 href="#form"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'form')}
+                onClick={(e) => handleAnchorNavigation(e, "form")}
               >
                 Форма заявки
               </a>
-              
-              <a 
+
+              <a
                 href="#contacts"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'contacts')}
+                onClick={(e) => handleAnchorNavigation(e, "contacts")}
               >
                 Контакты
               </a>
+            </div>
+            <div className={styles.navColumn}>
+              <a
+                href="#testimonials"
+                className={styles.navLink}
+                onClick={(e) => handleAnchorNavigation(e, "testimonials")}
+              >
+                Отзывы
+              </a>
 
-              <a 
+              <a
                 href="#documents"
                 className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, 'docs')}
+                onClick={(e) => handleAnchorNavigation(e, "docs")}
               >
                 Документы агентства
               </a>
-              
+
               <a href="/privacy-policy" className={styles.navLink}>
-  Политика в отношении обработки cookies
-</a>
-<a href="/personal-data-policy" className={styles.navLink}>
-  Политика в отношении обработки персональных данных
-</a>
-<a className={styles.navLink} onClick={show}>
-  Выбор настроек cookies
-</a>
+                Политика в отношении обработки cookies
+              </a>
+              <a href="/personal-data-policy" className={styles.navLink}>
+                Политика в отношении обработки персональных данных
+              </a>
+              <a className={styles.navLink} onClick={show}>
+                Выбор настроек cookies
+              </a>
             </div>
           </nav>
         </div>
