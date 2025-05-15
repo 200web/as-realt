@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import styles from "./TestimonialsCarousel.module.css";
+import React, { useState, useEffect } from 'react';
+import styles from './TestimonialsCarousel.module.css';
 
 interface Testimonial {
   id: number;
@@ -19,14 +19,14 @@ export default function TestimonialsCarousel() {
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/published`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === "ok") {
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'ok') {
           setTestimonials(data.reviews);
         }
       })
-      .catch((err) => {
-        console.error("Ошибка загрузки отзывов:", err);
+      .catch(err => {
+        console.error('Ошибка загрузки отзывов:', err);
       });
   }, []);
 
@@ -46,18 +46,18 @@ export default function TestimonialsCarousel() {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const totalSlides = Math.ceil(testimonials.length / testimonialsPerSlide);
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev <= 0 ? totalSlides - 1 : prev - 1));
+    setCurrentSlide(prev => (prev <= 0 ? totalSlides - 1 : prev - 1));
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev >= totalSlides - 1 ? 0 : prev + 1));
+    setCurrentSlide(prev => (prev >= totalSlides - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -66,30 +66,16 @@ export default function TestimonialsCarousel() {
         <div className={styles.sectionHeader}>
           <h2 className={styles.title}>Отзывы клиентов</h2>
           <div className={styles.navigation}>
-            <button className={styles.navButton} onClick={prevSlide}>
-              ←
-            </button>
-            <button className={styles.navButton} onClick={nextSlide}>
-              →
-            </button>
+            <button className={styles.navButton} onClick={prevSlide}>←</button>
+            <button className={styles.navButton} onClick={nextSlide}>→</button>
           </div>
         </div>
 
         {/* Мобильные стрелки */}
         {isMobile && (
           <div className={styles.mobileNavigation}>
-            <button
-              className={`${styles.mobileNavButton} ${styles.mobileNavPrev}`}
-              onClick={prevSlide}
-            >
-              ←
-            </button>
-            <button
-              className={`${styles.mobileNavButton} ${styles.mobileNavNext}`}
-              onClick={nextSlide}
-            >
-              →
-            </button>
+            <button className={`${styles.mobileNavButton} ${styles.mobileNavPrev}`} onClick={prevSlide}>←</button>
+            <button className={`${styles.mobileNavButton} ${styles.mobileNavNext}`} onClick={nextSlide}>→</button>
           </div>
         )}
 
@@ -98,7 +84,7 @@ export default function TestimonialsCarousel() {
             className={styles.carouselTrack}
             style={{
               transform: `translateX(-${currentSlide * 100}%)`,
-              width: `${totalSlides * 100}%`,
+              width: `${totalSlides * 100}%`
             }}
           >
             {Array.from({ length: totalSlides }).map((_, slideIndex) => {
@@ -114,18 +100,12 @@ export default function TestimonialsCarousel() {
                       <div key={t.id} className={styles.testimonialCard}>
                         <div className={styles.testimonialHeader}>
                           <div className={styles.testimonialHeaderTop}>
-                            <h3 className={styles.testimonialAuthor}>
-                              {t.name}
-                            </h3>
+                            <h3 className={styles.testimonialAuthor}>{t.name}</h3>
                             {t.source && (
-                              <span className={styles.testimonialSource}>
-                                {t.source}
-                              </span>
+                              <span className={styles.testimonialSource}>{t.source}</span>
                             )}
                           </div>
-                          <span className={styles.testimonialDate}>
-                            {t.date}
-                          </span>
+                          <span className={styles.testimonialDate}>{t.date}</span>
                         </div>
                         <p className={styles.testimonialContent}>{t.review}</p>
                       </div>
@@ -141,9 +121,7 @@ export default function TestimonialsCarousel() {
           {Array.from({ length: totalSlides }).map((_, index) => (
             <button
               key={index}
-              className={`${styles.dot} ${
-                currentSlide === index ? styles.activeDot : ""
-              }`}
+              className={`${styles.dot} ${currentSlide === index ? styles.activeDot : ''}`}
               onClick={() => setCurrentSlide(index)}
             />
           ))}

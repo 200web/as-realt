@@ -5,7 +5,7 @@
   width: 100%;
   position: relative;
   /* Set a fixed height for consistent layout */
-  height: 480px;
+  height: 480px; 
 }
 
 .imageContainer {
@@ -14,14 +14,14 @@
   overflow: hidden;
   margin-bottom: 16px;
   /* aspect-ratio: 3/4;  */
-  background-color: #2f3140; /* Matching Figma design */
+  background-color: #2F3140; /* Matching Figma design */
 }
 
-.memberImage {
+ .memberImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} 
 
 .memberInfo {
   padding: 0;
@@ -37,10 +37,9 @@
   align-items: center;
 }
 
-.memberPosition,
-.memberSubPosition {
+.memberPosition, .memberSubPosition {
   font-weight: 400;
-  color: #ba9778;
+  color: #BA9778;
   line-height: 1.2;
 }
 
@@ -49,7 +48,7 @@
   font-weight: 400;
   margin-bottom: 10px;
   line-height: 1.3;
-  color: #f1f1f1;
+  color: #F1F1F1;
 }
 
 .memberDetails {
@@ -62,7 +61,7 @@
 .reviewsLink {
   display: flex;
   align-items: center;
-  color: #ba9778;
+  color: #BA9778;
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s;
@@ -79,32 +78,32 @@
 
 @media (max-width: 768px) {
   .memberCard {
-    height: 100%;
+    height: 100%; 
     /* padding: 16px; */
-    /* width: 80%; */
+    width: 80%;
   }
-
+  
   .imageContainer {
     aspect-ratio: 3/4;
     margin-bottom: 16px;
   }
-
+  
   .memberInfo {
     height: 150px; /* Может вызвать конфликт со min-height */
   }
-
-  .memberPosition,
+  
+  .memberPosition, 
   .memberSubPosition {
     font-size: 18px;
     line-height: 1.2;
   }
-
+  
   .memberName {
     font-size: 20px;
     line-height: 1.3;
     margin-bottom: 8px;
   }
-
+  
   .reviewsLink {
     font-size: 18px;
   }
