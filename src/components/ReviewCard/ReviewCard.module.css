@@ -32,7 +32,8 @@
 }
 
 .date,
-.cardDescr, .source {
+.cardDescr,
+.source {
   font-size: 18px;
 }
 
@@ -47,7 +48,6 @@
   }
 
   .nameEmail {
-    flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
