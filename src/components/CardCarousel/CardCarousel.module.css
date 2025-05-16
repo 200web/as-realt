@@ -1,5 +1,5 @@
 .carouselSection {
-  background-color: #20222B;
+  background-color: #20222b;
   color: white;
   padding: 60px 0;
   width: 100%;
@@ -40,12 +40,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 53px; 
-  height: 53px; 
+  width: 53px;
+  height: 53px;
   border-radius: 50%;
-  border: 1px solid #BA9778;
-  background: #20222B;
-  color: #BA9778;;
+  border: 1px solid #ba9778;
+  background: #20222b;
+  color: #ba9778;
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -60,11 +60,11 @@
 }
 
 .prevButton {
-  left: -35px; 
+  left: -35px;
 }
 
 .nextButton {
-  right: -35px; 
+  right: -35px;
 }
 
 .dotsContainer {
@@ -86,7 +86,7 @@
 }
 
 .activeDot {
-  background-color: #F5A623;
+  background-color: #f5a623;
   transform: scale(1.2);
 }
 
@@ -94,7 +94,7 @@
   .container {
     padding: 0 40px;
   }
-  
+
   .carouselContainer {
     min-height: 450px; /* Adjust for tablet view */
   }
@@ -105,17 +105,37 @@
     width: 40px; /* Return to original size on mobile/tablet */
     height: 40px; /* Return to original size on mobile/tablet */
   }
-  
+
   .prevButton {
     left: -15px;
   }
-  
+
   .nextButton {
     right: -15px;
   }
-  
+
   .carouselContainer {
     min-height: 500px; /* Adjust for smaller tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .prevButton {
+    left: 21px;
+  }
+
+  .nextButton {
+    right: 21px;
+  }
+}
+
+@media (max-width: 650px) {
+  .prevButton {
+    left: -15px;
+  }
+
+  .nextButton {
+    right: -15px;
   }
 }
 
@@ -123,24 +143,24 @@
   .carouselSection {
     padding: 40px 0;
   }
-  
+
   .title {
     font-size: 38px;
     margin-bottom: 30px;
     font-weight: 100;
     text-align: center;
   }
-  
+
   .container {
     padding: 0 !important;
   }
-  
+
   .carouselContainer {
     padding: 0;
     margin-bottom: 20px;
     min-height: 450px; /* Adjusted for mobile */
   }
-  
+
   /* Adjust the carousel to show one item per view properly */
   .carousel {
     gap: 0;
@@ -149,7 +169,7 @@
 }
 
 @media (max-width: 576px) {
-  .container{
+  .container {
     margin: 0;
     padding: 0;
     max-width: 100% !important;
@@ -159,27 +179,39 @@
     height: 40px;
     top: 30%;
   }
-  
+
   .prevButton {
     left: 8px;
   }
-  
+
   .nextButton {
     right: 8px;
   }
-  
+
   .carouselContainer {
     min-height: 400px; /* Mobile height */
-    
   }
 }
 
 /* Center card on mobile to match Figma */
+
 @media (max-width: 768px) {
   .carousel > * {
     margin: 0 auto;
     width: 100%;
-    max-width: 85%; /* Match Figma width proportion */
+    max-width: 87.9%; /* Match Figma width proportion */
+  }
+}
+
+@media (max-width: 650px) {
+  .carousel > * {
+    max-width: 100%; /* Match Figma width proportion */
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel > * {
+    max-width: 87.9%; /* Match Figma width proportion */
   }
 }
 

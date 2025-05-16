@@ -1,31 +1,31 @@
-'use client';
+"use client";
 
-import React from 'react';
-import styles from './AboutAgencySection.module.css';
+import React from "react";
+import styles from "./AboutAgencySection.module.css";
 
 export default function AboutAgencySection() {
   return (
     <section className={styles.aboutSection}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <h2 className={styles.title}>О нашем агенстве </h2>
+          <h2 className={styles.title}>О нашем агентстве </h2>
           <a href="/about-us" className={styles.learnMore}>
             УЗНАТЬ БОЛЬШЕ <span className={styles.arrow}>→</span>
           </a>
         </div>
-        
+
         <div className={styles.content}>
           <div className={styles.description}>
             <p>
-                Наше агентство недвижимости - это сочетание молодости
-                и опыта. Несмотря на то, что мы новая компания, за нашими
-                плечами более 15 лет успешной работы в сфере недвижимости.
-                Мы предлагаем индивидуальный подход к каждому клиенту и
-                гарантируем высокое качество услуг. Доверьтесь нам, и мы
-                поможем вам сделать правильный выбор!
+              Наше агентство недвижимости - это сочетание молодости и опыта.
+              Несмотря на то, что мы новая компания, за нашими плечами более 15
+              лет успешной работы в сфере недвижимости. Мы предлагаем
+              индивидуальный подход к каждому клиенту и гарантируем высокое
+              качество услуг. Доверьтесь нам, и мы поможем вам сделать
+              правильный выбор!
             </p>
           </div>
-          
+
           <div className={styles.stats}>
             <div className={styles.statItem}>
               <span className={styles.statNumber}>15+</span>

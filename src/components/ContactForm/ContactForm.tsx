@@ -1,46 +1,44 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import styles from './ContactForm.module.css';
+import React, { useState } from "react";
+import styles from "./ContactForm.module.css";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    topic: '',
-    agreementChecked: false
+    name: "",
+    phone: "",
+    topic: "",
+    agreementChecked: false,
   });
 
   const [formErrors, setFormErrors] = useState({
     name: false,
     phone: false,
     topic: false,
-    agreement: false
+    agreement: false,
   });
 
   const [open, setOpen] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    if (e.target instanceof HTMLInputElement && e.target.type === 'checkbox') {
-      setFormData(prev => ({
+    if (e.target instanceof HTMLInputElement && e.target.type === "checkbox") {
+      setFormData((prev) => ({
         ...prev,
-        [name]: e.target.checked
+        [name]: e.target.checked,
       }));
     } else {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
-        [name]: value
+        [name]: value,
       }));
     }
 
     if (formErrors[name as keyof typeof formErrors]) {
-      setFormErrors(prev => ({
+      setFormErrors((prev) => ({
         ...prev,
-        [name]: false
+        [name]: false,
       }));
     }
   };
@@ -72,16 +70,16 @@ export default function ContactForm() {
 
   // const handleSubmit = (e: React.FormEvent) => {
   //   e.preventDefault();
-  
+
   //   const errors = {
   //     name: formData.name.trim() === '',
   //     phone: formData.phone.trim() === '',
   //     topic: formData.topic.trim() === '',
   //     agreement: !formData.agreementChecked
   //   };
-  
+
   //   setFormErrors(errors);
-  
+
   //   if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
   //     fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
   //       method: 'POST',
@@ -113,56 +111,53 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     const errors = {
-      name: formData.name.trim() === '',
-      phone: formData.phone.trim() === '',
-      topic: formData.topic.trim() === '',
-      agreement: !formData.agreementChecked
+      name: formData.name.trim() === "",
+      phone: formData.phone.trim() === "",
+      topic: formData.topic.trim() === "",
+      agreement: !formData.agreementChecked,
     };
-  
+
     setFormErrors(errors);
-  
+
     if (!errors.name && !errors.phone && !errors.topic && !errors.agreement) {
       fetch(`${process.env.NEXT_PUBLIC_API_URL}/leads`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
-          message: formData.topic
+          message: formData.topic,
         }),
       })
         .then((res) => {
-          if (!res.ok) throw new Error('Ошибка сервера');
+          if (!res.ok) throw new Error("Ошибка сервера");
           return res.json();
         })
         .then((data) => {
-          console.log('Ответ от сервера:', data);
-      
+          console.log("Ответ от сервера:", data);
+
           setFormData({
-            name: '',
-            phone: '',
-            topic: '',
-            agreementChecked: false
+            name: "",
+            phone: "",
+            topic: "",
+            agreementChecked: false,
           });
         })
         .catch((err) => {
-          console.error('Ошибка при отправке формы:', err);
-    
+          console.error("Ошибка при отправке формы:", err);
         });
     }
   };
-  
-  
 
   const topics = [
-    'Первичная консультация',
-    'Продажа квартиры',
-    'Аренда недвижимости',
-    'Загородный дом'
+    "Продажа недвижимости",
+    "Аренда недвижимости",
+    "Покупка / сопровождение / страхование",
+    "Интересует работа",
   ];
 
   return (
@@ -170,8 +165,8 @@ export default function ContactForm() {
       <div className={styles.container}>
         <h2 className={styles.title}>Оставьте заявку</h2>
         <p className={styles.subtitle}>
-          Мы ответим на все интересующие вопросы и поможем<br />
-          в любых даже самых сложных случаях
+          Мы ответим на все интересующие вопросы и поможем
+          <br />в любых даже самых сложных случаях
         </p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
@@ -184,9 +179,15 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Ваше имя"
-                  className={`${styles.input} ${formErrors.name ? styles.inputError : ''}`}
+                  className={`${styles.input} ${
+                    formErrors.name ? styles.inputError : ""
+                  }`}
                 />
-                <div className={`${styles.inputLine} ${formErrors.name ? styles.inputLineError : ''}`}></div>
+                <div
+                  className={`${styles.inputLine} ${
+                    formErrors.name ? styles.inputLineError : ""
+                  }`}
+                ></div>
               </div>
 
               <div className={styles.inputItem}>
@@ -196,9 +197,15 @@ export default function ContactForm() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Ваш телефон"
-                  className={`${styles.input} ${formErrors.phone ? styles.inputError : ''}`}
+                  className={`${styles.input} ${
+                    formErrors.phone ? styles.inputError : ""
+                  }`}
                 />
-                <div className={`${styles.inputLine} ${formErrors.phone ? styles.inputLineError : ''}`}></div>
+                <div
+                  className={`${styles.inputLine} ${
+                    formErrors.phone ? styles.inputLineError : ""
+                  }`}
+                ></div>
               </div>
 
               <div className={styles.inputItem}>
@@ -206,18 +213,23 @@ export default function ContactForm() {
                   <button
                     type="button"
                     onClick={() => setOpen(!open)}
-                    className={`${styles.customSelectTrigger} ${formErrors.topic ? styles.inputError : ''}`}
+                    className={`${styles.customSelectTrigger} ${
+                      formErrors.topic ? styles.inputError : ""
+                    }`}
                   >
-                    {formData.topic || 'Выбрать тему'}
+                    {formData.topic || "Выбрать тему"}
                   </button>
                   {open && (
                     <ul className={styles.customSelectList}>
-                      {topics.map(topic => (
+                      {topics.map((topic) => (
                         <li
                           key={topic}
                           onClick={() => {
-                            setFormData(prev => ({ ...prev, topic }));
-                            setFormErrors(prev => ({ ...prev, topic: false }));
+                            setFormData((prev) => ({ ...prev, topic }));
+                            setFormErrors((prev) => ({
+                              ...prev,
+                              topic: false,
+                            }));
                             setOpen(false);
                           }}
                           className={styles.customSelectOption}
@@ -240,15 +252,16 @@ export default function ContactForm() {
                   onChange={handleChange}
                   className={styles.checkboxInput}
                 />
-                <span className={`${styles.customCheckbox} ${formErrors.agreement ? styles.checkboxError : ''}`}></span>
+                <span
+                  className={`${styles.customCheckbox} ${
+                    formErrors.agreement ? styles.checkboxError : ""
+                  }`}
+                ></span>
                 <span className={styles.checkboxText}>
                   Я соглашаюсь с&nbsp;
-  <a
-    href="/personal-data-policy/"
-    className={styles.link}
-  >
-    политикой обработки персональных данных
-  </a>
+                  <a href="/personal-data-policy/" className={styles.link}>
+                    политикой обработки персональных данных
+                  </a>
                 </span>
               </label>
             </div>

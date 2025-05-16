@@ -9,7 +9,7 @@ export default function LoginSection() {
       <div className={styles.container}>
         <h2 className={styles.title}>Вход в личный кабинет</h2>
         <form className={styles.form}>
-          <input type="Name" placeholder="Номер телефона" className={styles.input} />
+          <input type="Name" placeholder="Логин" className={styles.input} />
           <input
             type="password"
             placeholder="Пароль"
