@@ -77,11 +77,11 @@
 }
 
 .mobileNavPrev {
-  left: 10px;
+  left: 5px;
 }
 
 .mobileNavNext {
-  right: 10px;
+  right: 5px;
 }
 
 /* Carousel structure */
@@ -132,7 +132,7 @@
 .testimonialHeaderTop {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   margin-bottom: 6px;
 }
 

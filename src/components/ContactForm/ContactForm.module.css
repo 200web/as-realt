@@ -158,6 +158,10 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.textError {
+  color: #ff6b6b;
+}
+
 .select {
   width: 120%;
   font-family: "Montserrat", sans-serif;

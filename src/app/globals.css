@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -13,7 +13,8 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
+  overscroll-behavior-y: contain;
 }
 
 /* Improved background implementation */
@@ -25,8 +26,8 @@ body::before {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-image: url('/home.webp');
-  background-size: 80% auto; 
+  background-image: url("/bg1.jpg");
+  background-size: 80% auto;
   background-position: center left;
   background-repeat: no-repeat;
   -webkit-transform: translateZ(0);
@@ -40,14 +41,13 @@ body::before {
 @media (max-width: 768px) {
   body::before {
     z-index: 0;
-  }	
+  }
 }
 
-  @media (max-width: 450px) {
-    body::before {
-      background-image: url('/home-mob.webp');
-    }	
-    
+@media (max-width: 450px) {
+  body::before {
+    background-image: url("/home-mob.webp");
+  }
 }
 
 /* Scroll Behavior Improvements */
@@ -100,7 +100,7 @@ section[id] {
   html {
     scroll-behavior: auto;
   }
-  
+
   body {
     padding-top: 0;
   }
@@ -113,7 +113,7 @@ img {
 }
 
 /* Make all sections and containers responsive */
-section, 
+section,
 .container,
 .content,
 .heroContent,
@@ -149,14 +149,14 @@ section {
     width: 100%;
     box-sizing: border-box;
   }
-  
+
   .ctaButton a,
   .submitButton a,
   .leaveCommentButton a {
     width: 100%;
     box-sizing: border-box;
   }
-  
+
   /* Fix for grid layouts on small screens */
   .stageRow,
   .advantagesGrid,
@@ -166,14 +166,14 @@ section {
     display: flex;
     flex-direction: column;
   }
-  
+
   /* Ensure padding doesn't cause overflow */
   .container {
     padding-left: 15px;
     padding-right: 15px;
     /* max-width: 1200px !important; */
   }
-  
+
   /* Fix for testimonial cards */
   .testimonialCard {
     width: 100%;
@@ -189,7 +189,7 @@ section {
 
 /* Don't animate on page load for the first screen */
 @media (prefers-reduced-motion: no-preference) {
-  .fade-in-section:nth-child(-n+2) {
+  .fade-in-section:nth-child(-n + 2) {
     opacity: 1;
     transform: none;
   }

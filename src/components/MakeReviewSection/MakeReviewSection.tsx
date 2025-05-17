@@ -1,23 +1,23 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import styles from './MakeReviewSection.module.css';
-import { ReviewCard } from '../ReviewCard/ReviewCard';
+import React, { useEffect, useState } from "react";
+import styles from "./MakeReviewSection.module.css";
+import { ReviewCard } from "../ReviewCard/ReviewCard";
 
 export default function MakeReviewSection() {
   const [isMobile, setIsMobile] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    review: '',
-    agreementChecked: false
+    name: "",
+    phone: "",
+    review: "",
+    agreementChecked: false,
   });
 
   const [formErrors, setFormErrors] = useState({
     name: false,
     phone: false,
     review: false,
-    agreement: false
+    agreement: false,
   });
 
   const [reviews, setReviews] = useState([]);
@@ -28,29 +28,38 @@ export default function MakeReviewSection() {
       setIsMobile(window.innerWidth <= 900);
     };
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/published`)
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 'ok') {
+        if (data.status === "ok") {
           setReviews(data.reviews);
         }
       });
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === "checkbox" ? checked : value,
     }));
 
     if (formErrors[name as keyof typeof formErrors]) {
       setFormErrors((prev) => ({ ...prev, [name]: false }));
+    }
+
+    if (name === "agreementChecked" && formErrors.agreement) {
+      setFormErrors((prev) => ({
+        ...prev,
+        agreement: false,
+      }));
     }
   };
 
@@ -58,35 +67,35 @@ export default function MakeReviewSection() {
     e.preventDefault();
 
     const errors = {
-      name: formData.name.trim() === '',
-      phone: formData.phone.trim() === '',
-      review: formData.review.trim() === '',
-      source: formData.review.trim() === '',
-      agreement: !formData.agreementChecked
+      name: formData.name.trim() === "",
+      phone: formData.phone.trim() === "",
+      review: formData.review.trim() === "",
+      source: formData.review.trim() === "",
+      agreement: !formData.agreementChecked,
     };
 
     setFormErrors(errors);
 
     if (!Object.values(errors).some(Boolean)) {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
           review: formData.review,
-          source: 'Наш сайт',
-          date: new Date().toLocaleDateString('ru-RU')
-        })
+          source: "Наш сайт",
+          date: new Date().toLocaleDateString("ru-RU"),
+        }),
       });
 
       const data = await res.json();
-      if (data.status === 'ok') {
+      if (data.status === "ok") {
         setFormData({
-          name: '',
-          phone: '',
-          review: '',
-          agreementChecked: false
+          name: "",
+          phone: "",
+          review: "",
+          agreementChecked: false,
         });
         setSubmitted(true);
         setTimeout(() => setSubmitted(false), 4000);
@@ -124,8 +133,12 @@ export default function MakeReviewSection() {
                 value={formData.phone}
                 onChange={handleChange}
               />
-              <button type="submit" className={styles.button} disabled={submitted}>
-                {submitted ? 'Спасибо за отзыв!' : 'Отправить отзыв'}
+              <button
+                type="submit"
+                className={styles.button}
+                disabled={submitted}
+              >
+                {submitted ? "Спасибо за отзыв!" : "Отправить отзыв"}
               </button>
             </div>
 
@@ -138,15 +151,20 @@ export default function MakeReviewSection() {
                   onChange={handleChange}
                   className={styles.checkboxInput}
                 />
-                <span className={`${styles.customCheckbox} ${formErrors.agreement ? styles.checkboxError : ''}`}></span>
-                <span className={styles.checkboxText}>
+                <span
+                  className={`${styles.customCheckbox} ${
+                    formErrors.agreement ? styles.checkboxError : ""
+                  }`}
+                ></span>
+                <span
+                  className={`${styles.checkboxText} ${
+                    formErrors.agreement ? styles.textError : ""
+                  }`}
+                >
                   Я соглашаюсь с&nbsp;
-  <a
-    href="/personal-data-policy/"
-    className={styles.link}
-  >
-    политикой обработки персональных данных
-  </a>
+                  <a href="/personal-data-policy/" className={styles.link}>
+                    политикой обработки персональных данных
+                  </a>
                 </span>
               </label>
             </div>
@@ -156,7 +174,7 @@ export default function MakeReviewSection() {
             <ReviewCard
               key={r.id}
               author={r.name}
-              source={r.source} 
+              source={r.source}
               date={r.date}
               text={r.review}
             />

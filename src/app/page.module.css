@@ -15,75 +15,74 @@
   z-index: 1; /* Ensure content is above background */
 }
 
+/* Full Width Image Section Fix */
+.fullWidthImageSection {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
 
-  /* Full Width Image Section Fix */
-  .fullWidthImageSection {
-    width: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
+.fullWidthImageSection .imageContainer {
+  max-width: 1400px !important; /* Match our new container width */
+  width: 100%;
+  background-color: #20222b;
+  position: relative;
+}
+
+.fullWidthImageSection .fullWidthImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Add margin to create space between sections */
+.fullWidthImageSection {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Add subtle shadow for visual separation */
+.fullWidthImageSection .imageContainer {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
   .fullWidthImageSection .imageContainer {
-    max-width: 1400px !important; /* Match our new container width */
-    width: 100%;
-    background-color: #20222B;
-    position: relative;
+    max-width: 100%;
   }
-  
-  .fullWidthImageSection .fullWidthImage {
-    width: 100%;
+}
+
+@media (max-width: 1600px) {
+  .fullWidthImageSection .imageContainer {
+    max-width: 1200px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .fullWidthImageSection {
     height: auto;
-    display: block;
+    width: 100%;
+    padding: 0 20px;
   }
-  
-  /* Add margin to create space between sections */
+
+  .fullWidthImageSection .fullWidthImage {
+    height: 300px;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 650px) {
   .fullWidthImageSection {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  
-  /* Add subtle shadow for visual separation */
-  .fullWidthImageSection .imageContainer {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 1200px) {
-    .fullWidthImageSection .imageContainer {
-      max-width: 100%;
-    }
+    height: auto;
+    width: 100%;
+    padding: 0 7.5%;
   }
 
-  @media (max-width: 1600px) {
-    .fullWidthImageSection .imageContainer {
-      max-width: 1200px !important;
-    }
+  .fullWidthImageSection .fullWidthImage {
+    height: 300px;
+    object-fit: cover;
   }
-  
-  @media (max-width: 768px) {
-    .fullWidthImageSection {
-      height: auto;
-      width: 100%;
-      padding: 0 20px;
-    }
-    
-    .fullWidthImageSection .fullWidthImage {
-      height: 300px;
-      object-fit: cover;
-    }
-  }
-
-  @media (max-width: 650px) {
-    .fullWidthImageSection {
-      height: auto;
-      width: 100%;
-      padding: 0 7.5%;
-    }
-    
-    .fullWidthImageSection .fullWidthImage {
-      height: 300px;
-      object-fit: cover;
-    }
-  }
+}

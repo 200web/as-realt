@@ -41,6 +41,13 @@ export default function ContactForm() {
         [name]: false,
       }));
     }
+
+    if (name === "agreementChecked" && formErrors.agreement) {
+      setFormErrors((prev) => ({
+        ...prev,
+        agreement: false,
+      }));
+    }
   };
 
   // const handleSubmit = (e: React.FormEvent) => {
@@ -257,7 +264,11 @@ export default function ContactForm() {
                     formErrors.agreement ? styles.checkboxError : ""
                   }`}
                 ></span>
-                <span className={styles.checkboxText}>
+                <span
+                  className={`${styles.checkboxText} ${
+                    formErrors.agreement ? styles.textError : ""
+                  }`}
+                >
                   Я соглашаюсь с&nbsp;
                   <a href="/personal-data-policy/" className={styles.link}>
                     политикой обработки персональных данных

@@ -58,87 +58,179 @@ export default function Footer() {
 
           {/* Right side - Navigation links */}
           <nav className={styles.footerNav}>
-            <div className={styles.navColumn}>
-              {/* About Us Page Link */}
-              <Link href="/about-us" className={styles.navLink}>
-                Об агентстве
-              </Link>
+            {isMobile ? (
+              <>
+                <div className={styles.navColumn}>
+                  {/* About Us Page Link */}
+                  <Link href="/about-us" className={styles.navLink}>
+                    Об агентстве
+                  </Link>
 
-              {/* Anchor links with navigation handler */}
-              <a
-                href="#properties"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "properties")}
-              >
-                Наши объекты
-              </a>
+                  {/* Anchor links with navigation handler */}
+                  <a
+                    href="#properties"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "properties")}
+                  >
+                    Наши объекты
+                  </a>
 
-              <a
-                href="#advantages"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "advantages")}
-              >
-                Преимущества
-              </a>
+                  <a
+                    href="#advantages"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "advantages")}
+                  >
+                    Преимущества
+                  </a>
 
-              <a
-                href="#specialists"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "specialists")}
-              >
-                Специалисты
-              </a>
-              <a
-                href="#stages"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "stages")}
-              >
-                Этапы работы
-              </a>
+                  <a
+                    href="#specialists"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "specialists")}
+                  >
+                    Специалисты
+                  </a>
+                  <a
+                    href="#stages"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "stages")}
+                  >
+                    Этапы работы
+                  </a>
 
-              <a
-                href="#form"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "form")}
-              >
-                Форма заявки
-              </a>
+                  <a
+                    href="#form"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "form")}
+                  >
+                    Форма заявки
+                  </a>
 
-              <a
-                href="#contacts"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "contacts")}
-              >
-                Контакты
-              </a>
-            </div>
-            <div className={styles.navColumn}>
-              <a
-                href="#testimonials"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "testimonials")}
-              >
-                Отзывы
-              </a>
+                  <a
+                    href="#contacts"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "contacts")}
+                  >
+                    Контакты
+                  </a>
+                </div>
+                <div className={styles.navColumn}>
+                  <a
+                    href="#testimonials"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "testimonials")}
+                  >
+                    Отзывы
+                  </a>
 
-              <a
-                href="#documents"
-                className={styles.navLink}
-                onClick={(e) => handleAnchorNavigation(e, "docs")}
-              >
-                Документы агентства
-              </a>
+                  <a
+                    href="#documents"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "docs")}
+                  >
+                    Документы агентства
+                  </a>
 
-              <a href="/privacy-policy" className={styles.navLink}>
-                Политика в отношении обработки cookies
-              </a>
-              <a href="/personal-data-policy" className={styles.navLink}>
-                Политика в отношении обработки персональных данных
-              </a>
-              <a className={styles.navLink} onClick={show}>
-                Выбор настроек cookies
-              </a>
-            </div>
+                  <a href="/privacy-policy" className={styles.navLink}>
+                    Политика в отношении обработки cookies
+                  </a>
+                  <a href="/personal-data-policy" className={styles.navLink}>
+                    Политика в отношении обработки персональных данных
+                  </a>
+                  <a className={styles.navLink} onClick={show}>
+                    Выбор настроек cookies
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className={styles.navColumn}>
+                  {/* About Us Page Link */}
+                  <Link href="/about-us" className={styles.navLink}>
+                    Об агентстве
+                  </Link>
+
+                  {/* Anchor links with navigation handler */}
+                  <a
+                    href="#properties"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "properties")}
+                  >
+                    Наши объекты
+                  </a>
+
+                  <a
+                    href="#advantages"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "advantages")}
+                  >
+                    Преимущества
+                  </a>
+
+                  <a
+                    href="#specialists"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "specialists")}
+                  >
+                    Специалисты
+                  </a>
+                </div>
+                <div className={styles.navColumn}>
+                  <a
+                    href="#stages"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "stages")}
+                  >
+                    Этапы работы
+                  </a>
+
+                  <a
+                    href="#form"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "form")}
+                  >
+                    Форма заявки
+                  </a>
+
+                  <a
+                    href="#contacts"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "contacts")}
+                  >
+                    Контакты
+                  </a>
+
+                  <a
+                    href="#testimonials"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "testimonials")}
+                  >
+                    Отзывы
+                  </a>
+                </div>
+                <div className={styles.navColumn}>
+                  <a
+                    href="#documents"
+                    className={styles.navLink}
+                    onClick={(e) => handleAnchorNavigation(e, "docs")}
+                  >
+                    Документы агентства
+                  </a>
+
+                  <a href="/privacy-policy" className={styles.navLink}>
+                    Политика в отношении обработки cookies
+                  </a>
+
+                  <a href="/personal-data-policy" className={styles.navLink}>
+                    Политика в отношении обработки персональных данных
+                  </a>
+
+                  <a className={styles.navLink} onClick={show}>
+                    Выбор настроек cookies
+                  </a>
+                </div>
+              </>
+            )}
           </nav>
         </div>
       </div>

@@ -107,7 +107,6 @@
   background-color: #d9c09b;
 }
 
-
 .agreementCheckbox {
   margin-top: 0px;
 }
@@ -158,6 +157,10 @@
 
 .link {
   color: inherit;
+}
+
+.textError {
+  color: #ff6b6b;
 }
 
 /* Responsive */
@@ -233,5 +236,5 @@
 @media (max-width: 450px) {
   .loginSection {
     padding: 100px 0px 100px 0px;
-}
+  }
 }

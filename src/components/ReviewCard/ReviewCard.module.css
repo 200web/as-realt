@@ -19,6 +19,10 @@
   justify-content: space-between;
 }
 
+.email {
+  text-wrap: nowrap;
+}
+
 .nameEmail .email {
   background-color: rgba(186, 151, 120, 1);
   padding: 5px 25px;
