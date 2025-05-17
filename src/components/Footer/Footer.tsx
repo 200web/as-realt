@@ -113,8 +113,7 @@ export default function Footer() {
                   >
                     Контакты
                   </a>
-                </div>
-                <div className={styles.navColumn}>
+
                   <a
                     href="#testimonials"
                     className={styles.navLink}
@@ -122,7 +121,8 @@ export default function Footer() {
                   >
                     Отзывы
                   </a>
-
+                </div>
+                <div className={styles.navColumn}>
                   <a
                     href="#documents"
                     className={styles.navLink}
